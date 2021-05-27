@@ -3,10 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71E66A868DEA794FB923F733 /* Pods_msgraph__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F222E5E0DDBE9EBAF1CE5FA /* Pods_msgraph__macOS_.framework */; };
+		7F207F939B55774AB019D01D /* Pods_msgraph__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F27E1F767791133815C15D /* Pods_msgraph__iOS_.framework */; };
+		E6145F25265FF216009296EE /* calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F24265FF216009296EE /* calender.swift */; };
+		E6145F26265FF216009296EE /* calender.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F24265FF216009296EE /* calender.swift */; };
+		E6145F28265FF258009296EE /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F27265FF258009296EE /* EventView.swift */; };
+		E6145F29265FF258009296EE /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F27265FF258009296EE /* EventView.swift */; };
+		E6145F2C265FF5A8009296EE /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2B265FF5A7009296EE /* schema.json */; };
+		E6145F2D265FF5A8009296EE /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2B265FF5A7009296EE /* schema.json */; };
+		E6145F2F265FF67C009296EE /* LaunchList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2E265FF67C009296EE /* LaunchList.graphql */; };
+		E6145F30265FF67C009296EE /* LaunchList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2E265FF67C009296EE /* LaunchList.graphql */; };
+		E6145F32265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
+		E6145F33265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
+		E6145F35265FFBC1009296EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F34265FFBC1009296EE /* API.swift */; };
+		E6145F36265FFBC1009296EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F34265FFBC1009296EE /* API.swift */; };
+		E6145F38265FFDC9009296EE /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F37265FFDC9009296EE /* DataFetcher.swift */; };
+		E6145F39265FFDC9009296EE /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F37265FFDC9009296EE /* DataFetcher.swift */; };
 		E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */; };
 		E6CECDE0265D210D00CA87F8 /* msgraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */; };
 		E6CECDE1265D210D00CA87F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CECDCD265D20F600CA87F8 /* ContentView.swift */; };
@@ -16,6 +32,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03C097152AA647E45ABAFC36 /* Pods-msgraph (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-msgraph (iOS).debug.xcconfig"; path = "Target Support Files/Pods-msgraph (iOS)/Pods-msgraph (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		42E2DDBB1D0A8F7EB06C29ED /* Pods-msgraph (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-msgraph (iOS).release.xcconfig"; path = "Target Support Files/Pods-msgraph (iOS)/Pods-msgraph (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		77DF1FD1AB783059E3EB88C0 /* Pods-msgraph (macOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-msgraph (macOS).debug.xcconfig"; path = "Target Support Files/Pods-msgraph (macOS)/Pods-msgraph (macOS).debug.xcconfig"; sourceTree = "<group>"; };
+		7F222E5E0DDBE9EBAF1CE5FA /* Pods_msgraph__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_msgraph__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3F27E1F767791133815C15D /* Pods_msgraph__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_msgraph__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6145F24265FF216009296EE /* calender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calender.swift; sourceTree = "<group>"; };
+		E6145F27265FF258009296EE /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		E6145F2B265FF5A7009296EE /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		E6145F2E265FF67C009296EE /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
+		E6145F31265FF7E0009296EE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E6145F34265FFBC1009296EE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
+		E6145F37265FFDC9009296EE /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = msgraphApp.swift; sourceTree = "<group>"; };
 		E6CECDCD265D20F600CA87F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6CECDCE265D210D00CA87F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -24,6 +52,7 @@
 		E6CECDDB265D210D00CA87F8 /* msgraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = msgraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CECDDD265D210D00CA87F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6CECDDE265D210D00CA87F8 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E7B442DFCF569BF8EDF4C206 /* Pods-msgraph (macOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-msgraph (macOS).release.xcconfig"; path = "Target Support Files/Pods-msgraph (macOS)/Pods-msgraph (macOS).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F207F939B55774AB019D01D /* Pods_msgraph__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,19 +68,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E66A868DEA794FB923F733 /* Pods_msgraph__macOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64692C0FAFF5F971D528921B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				03C097152AA647E45ABAFC36 /* Pods-msgraph (iOS).debug.xcconfig */,
+				42E2DDBB1D0A8F7EB06C29ED /* Pods-msgraph (iOS).release.xcconfig */,
+				77DF1FD1AB783059E3EB88C0 /* Pods-msgraph (macOS).debug.xcconfig */,
+				E7B442DFCF569BF8EDF4C206 /* Pods-msgraph (macOS).release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7BF5251A9F0E3E52D7787197 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3F27E1F767791133815C15D /* Pods_msgraph__iOS_.framework */,
+				7F222E5E0DDBE9EBAF1CE5FA /* Pods_msgraph__macOS_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E6CECDC6265D20F400CA87F8 = {
 			isa = PBXGroup;
 			children = (
+				E6145F2B265FF5A7009296EE /* schema.json */,
+				E6145F2E265FF67C009296EE /* LaunchList.graphql */,
 				E6CECDCB265D20F600CA87F8 /* Shared */,
 				E6CECDD5265D210D00CA87F8 /* iOS */,
 				E6CECDDC265D210D00CA87F8 /* macOS */,
 				E6CECDD4265D210D00CA87F8 /* Products */,
+				64692C0FAFF5F971D528921B /* Pods */,
+				7BF5251A9F0E3E52D7787197 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +114,11 @@
 			children = (
 				E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */,
 				E6CECDCD265D20F600CA87F8 /* ContentView.swift */,
+				E6145F37265FFDC9009296EE /* DataFetcher.swift */,
+				E6145F31265FF7E0009296EE /* Network.swift */,
+				E6145F34265FFBC1009296EE /* API.swift */,
+				E6145F27265FF258009296EE /* EventView.swift */,
+				E6145F24265FF216009296EE /* calender.swift */,
 				E6CECDCE265D210D00CA87F8 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -97,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6CECDE7265D210D00CA87F8 /* Build configuration list for PBXNativeTarget "msgraph (iOS)" */;
 			buildPhases = (
+				E6145F2A265FF4A1009296EE /* Apollo CLI */,
+				AC13E9824E57597264651A2D /* [CP] Check Pods Manifest.lock */,
 				E6CECDCF265D210D00CA87F8 /* Sources */,
 				E6CECDD0265D210D00CA87F8 /* Frameworks */,
 				E6CECDD1265D210D00CA87F8 /* Resources */,
+				52C82766C224B0B649C50EA5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,6 +177,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E6CECDEA265D210D00CA87F8 /* Build configuration list for PBXNativeTarget "msgraph (macOS)" */;
 			buildPhases = (
+				84A332775812CDFC5F15C7B1 /* [CP] Check Pods Manifest.lock */,
 				E6CECDD7265D210D00CA87F8 /* Sources */,
 				E6CECDD8265D210D00CA87F8 /* Frameworks */,
 				E6CECDD9265D210D00CA87F8 /* Resources */,
@@ -168,6 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6145F2F265FF67C009296EE /* LaunchList.graphql in Resources */,
+				E6145F2C265FF5A8009296EE /* schema.json in Resources */,
 				E6CECDE3265D210D00CA87F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,19 +242,108 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6145F30265FF67C009296EE /* LaunchList.graphql in Resources */,
+				E6145F2D265FF5A8009296EE /* schema.json in Resources */,
 				E6CECDE4265D210D00CA87F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52C82766C224B0B649C50EA5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-msgraph (iOS)/Pods-msgraph (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-msgraph (iOS)/Pods-msgraph (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-msgraph (iOS)/Pods-msgraph (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84A332775812CDFC5F15C7B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-msgraph (macOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC13E9824E57597264651A2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-msgraph (iOS)-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6145F2A265FF4A1009296EE /* Apollo CLI */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo CLI";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\n#cd \"${SRCROOT}/${TARGET_NAME}\"\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n# This is for downloding the schema\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"https://api.spacex.land/graphql\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E6CECDCF265D210D00CA87F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6145F32265FF7E0009296EE /* Network.swift in Sources */,
+				E6145F38265FFDC9009296EE /* DataFetcher.swift in Sources */,
 				E6CECDE1265D210D00CA87F8 /* ContentView.swift in Sources */,
+				E6145F25265FF216009296EE /* calender.swift in Sources */,
 				E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */,
+				E6145F35265FFBC1009296EE /* API.swift in Sources */,
+				E6145F28265FF258009296EE /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,8 +351,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6145F33265FF7E0009296EE /* Network.swift in Sources */,
+				E6145F39265FFDC9009296EE /* DataFetcher.swift in Sources */,
 				E6CECDE2265D210D00CA87F8 /* ContentView.swift in Sources */,
+				E6145F26265FF216009296EE /* calender.swift in Sources */,
 				E6CECDE0265D210D00CA87F8 /* msgraphApp.swift in Sources */,
+				E6145F36265FFBC1009296EE /* API.swift in Sources */,
+				E6145F29265FF258009296EE /* EventView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +477,7 @@
 		};
 		E6CECDE8265D210D00CA87F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03C097152AA647E45ABAFC36 /* Pods-msgraph (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -339,6 +500,7 @@
 		};
 		E6CECDE9265D210D00CA87F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42E2DDBB1D0A8F7EB06C29ED /* Pods-msgraph (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -362,6 +524,7 @@
 		};
 		E6CECDEB265D210D00CA87F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77DF1FD1AB783059E3EB88C0 /* Pods-msgraph (macOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -386,6 +549,7 @@
 		};
 		E6CECDEC265D210D00CA87F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7B442DFCF569BF8EDF4C206 /* Pods-msgraph (macOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

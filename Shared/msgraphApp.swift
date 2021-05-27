@@ -2,7 +2,7 @@
 //  msgraphApp.swift
 //  Shared
 //
-//  Created by Maarten Wittop Koning on 25/05/2021.
+//  Created by Olivier Wittop Koning on 25/05/2021.
 //
 
 import SwiftUI
