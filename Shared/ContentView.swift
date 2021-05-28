@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     // SpaceX api https://api.spacex.land/graphql
+
     @State private var text: String = "Nothing"
     @StateObject private var DataFetch: DataFetcher
     var body: some View {
@@ -16,7 +17,7 @@ struct ContentView: View {
 
             VStack {
                 Button("Get the data") {
-                    let threst =DataFetch.GetTheData()
+                    let threst = DataFetch.GetTheData()
                     print(threst)
                     text = "\(threst)"
                 }
