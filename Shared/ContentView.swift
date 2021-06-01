@@ -8,27 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    // SpaceX api https://api.spacex.land/graphql
-
+    
     @State private var text: String = "Nothing"
-    @StateObject private var DataFetch: DataFetcher
+    @StateObject var DataFetch: DataFetcher = DataFetcher()
+    
     var body: some View {
         NavigationView {
-
-            VStack {
-                Button("Get the data") {
-                    let threst = DataFetch.GetTheData()
-                    print(threst)
-                    text = "\(threst)"
-                }
-                Text($text)
-            }
             List {
                 ForEach(DataFetch.result) { event in
-                    EventView(event)
+                    EventView(event: event)
                 }
-            }.navigationBarTitle(Text(title))
-        }.navigationViewStyle(StackNavigationViewStyle())
+            }
+        }
     }
 }
 
@@ -38,6 +29,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+/*
 func GetDataGraph() -> Void {
     Network.shared.apollo.fetch(query: LaunchListQuery()) { result in
         switch result {
@@ -48,3 +40,14 @@ func GetDataGraph() -> Void {
         }
     }
 }
+
+
+ VStack {
+ Button("Get the data") {
+ let threst = DataFetch.GetTheData()
+ print(threst)
+ text = "\(threst)"
+ }
+ Text($text)
+ }
+ */
