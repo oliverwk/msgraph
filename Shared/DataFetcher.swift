@@ -6,12 +6,27 @@
 //
 
 import Foundation
-public class DataFetcher: ObservableObject {
+
+class DataFetcher: ObservableObject {
     
-    @Published var result: LaunchesPast
+    @Published var result: [LaunchListQuery.Data.LaunchesPast]
     
-    func GetTheData(Query: GraphQLQuery) -> LaunchesPast {
-        Network.shared.apollo.fetch(query: Query) { result in
+    private func GetTheData() {
+      Network.shared.apollo.fetch(query: LaunchListQuery()) { [weak self] result in
+
+          switch result {
+          case .success(let graphQLResult): break
+            DispatchQueue.main.async {
+                self?.result = graphQLResult.data?.launchesPast as! [LaunchListQuery.Data.LaunchesPast]
+            }
+          case .failure(let error):
+            print("Network Error", error.localizedDescription)
+          }
+      }
+    }
+    /*
+    func LoadLaunches(Query: String) -> LaunchListQuery.Data.LaunchesPast {
+        Network.shared.apollo.fetch(query: LaunchListQuery()) { result in
             switch result {
             case .success(let graphQLResult):
                 print("Success! Result: \(graphQLResult)")
@@ -21,13 +36,9 @@ public class DataFetcher: ObservableObject {
                 return error
             }
         }
-    }
+    }*/
+    
     init() {
-        var res = GetTheData(LaunchListQuery())
-        if type(of: res) ==  LaunchesPast {
-            DispatchQueue.main.async {
-                self.result = res
-            }
-        }
+        result = [LaunchListQuery.Data.LaunchesPast(missionName: "StarLink", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "about:blank"), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9", secondStage: LaunchListQuery.Data.LaunchesPast.Rocket.SecondStage(payloads: [LaunchListQuery.Data.LaunchesPast.Rocket.SecondStage.Payload(payloadType: "Satellite", payloadMassKg: 1440.0)])))]
     }
 }

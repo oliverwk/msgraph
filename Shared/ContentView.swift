@@ -1,34 +1,31 @@
 //
 //  ContentView.swift
-//  Shared
+//  msgraph
 //
-//  Created by Olivier Wittop Koning on 25/05/2021.
+//  Created by Olivier Wittop Koning on 01/06/2021.
 //
 
 import SwiftUI
 
-struct ContentView: View {
-    // SpaceX api https://api.spacex.land/graphql
+extension String: Identifiable {
+    public var id: String { self }
+}
 
-    @State private var text: String = "Nothing"
-    @StateObject private var DataFetch: DataFetcher
+struct ContentView: View {
+    @ObservedObject private var launchData: LaunchListData = LaunchListData()
+    
     var body: some View {
         NavigationView {
-
-            VStack {
-                Button("Get the data") {
-                    let threst = DataFetch.GetTheData()
-                    print(threst)
-                    text = "\(threst)"
+            VStack(spacing: 10) {
+                Spacer()
+                List(launchData.missions) { site in
+                    NavigationLink(destination: Text(site)) {
+                        Text(site)
+                    }
                 }
-                Text($text)
             }
-            List {
-                ForEach(DataFetch.result) { event in
-                    EventView(event)
-                }
-            }.navigationBarTitle(Text(title))
-        }.navigationViewStyle(StackNavigationViewStyle())
+            .navigationTitle("SpaceX API")
+        }
     }
 }
 
@@ -38,13 +35,30 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-func GetDataGraph() -> Void {
-    Network.shared.apollo.fetch(query: LaunchListQuery()) { result in
-        switch result {
-        case .success(let graphQLResult):
-            print("Success! Result: \(graphQLResult)")
-        case .failure(let error):
-            print("Failure! Error: \(error)")
+class LaunchListData: ObservableObject {
+    @Published var missions: [String]
+    
+    init() {
+        print("running loadData")
+        self.missions  = [String]()
+        loadData()
+    }
+    
+    func loadData() {
+        Network.shared.apollo.fetch(query: LaunchListQuery()) { result in
+            switch result {
+            case .success(let graphQLResult):
+                print(graphQLResult.data?.launchesPast! as Any)
+                for launch in graphQLResult.data?.launchesPast ?? [] {
+                    if launch != nil {
+                        self.missions.append(launch?.missionName ?? "No Name")
+                    }
+                }
+                
+                print("Success! Result: \(String(describing: self.missions))")
+            case .failure(let error):
+                print("Failure! Error: \(error)")
+            }
         }
     }
 }

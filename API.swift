@@ -9,7 +9,7 @@ public final class LaunchListQuery: GraphQLQuery {
   public let operationDefinition: String =
     """
     query LaunchList {
-      launchesPast(limit: 10) {
+      launchesPast(limit: 15) {
         __typename
         mission_name
         launch_date_local
@@ -47,7 +47,7 @@ public final class LaunchListQuery: GraphQLQuery {
 
     public static var selections: [GraphQLSelection] {
       return [
-        GraphQLField("launchesPast", arguments: ["limit": 10], type: .list(.object(LaunchesPast.selections))),
+        GraphQLField("launchesPast", arguments: ["limit": 15], type: .list(.object(LaunchesPast.selections))),
       ]
     }
 
