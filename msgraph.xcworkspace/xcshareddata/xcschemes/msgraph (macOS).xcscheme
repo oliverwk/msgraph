@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "432BBB55622BA5DC77A2AD377928A29F"
-               BuildableName = "Pods_msgraph__iOS_.framework"
-               BlueprintName = "Pods-msgraph (iOS)"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "E6CECDDA265D210D00CA87F8"
+               BuildableName = "msgraph.app"
+               BlueprintName = "msgraph (macOS)"
+               ReferencedContainer = "container:msgraph.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E6CECDDA265D210D00CA87F8"
+            BuildableName = "msgraph.app"
+            BlueprintName = "msgraph (macOS)"
+            ReferencedContainer = "container:msgraph.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E6CECDDA265D210D00CA87F8"
+            BuildableName = "msgraph.app"
+            BlueprintName = "msgraph (macOS)"
+            ReferencedContainer = "container:msgraph.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
