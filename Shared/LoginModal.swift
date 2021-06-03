@@ -47,15 +47,21 @@ struct LoginCVWrapper: UIViewControllerRepresentable {
         
         func SnapUpdate(displayName: String, ProfilePicture: UIImage, token: String) {
             parent.displayName = displayName
-            parent.$isPresented.wrappedValue.toggle()
             parent.ProfilePicture = ProfilePicture
-            parent.$logedIn.wrappedValue.toggle()
             parent.token = token
+        }
+        
+        func UserDoneLogedin() {
+            parent.$isPresented.wrappedValue.toggle()
+            parent.$logedIn.wrappedValue.toggle()
+        }
+        
+        func UserLogedin() {
+            parent.$logedIn.wrappedValue.toggle()
         }
         
         func DisplayError(msg: String) {
             parent.displayName = msg
-            parent.$isPresented.wrappedValue.toggle()
             parent.$logedIn.wrappedValue = false
         }
     }
@@ -64,6 +70,8 @@ struct LoginCVWrapper: UIViewControllerRepresentable {
 public protocol LoginViewControlDelegate : NSObjectProtocol {
     func SnapUpdate(displayName: String, ProfilePicture: UIImage, token: String)
     func DisplayError(msg: String)
+    func UserDoneLogedin()
+    func UserLogedin()
 }
 
 class LoginViewController: UIViewController {
@@ -82,29 +90,154 @@ class LoginViewController: UIViewController {
     var webViewParamaters : MSALWebviewParameters?
     
     var currentAccount: MSALAccount?
+    var signOutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         do {
             try self.initMSAL()
+            // self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
         } catch let error {
             print("Unable to create Application Context \(error)")
             self.delegate?.DisplayError(msg: "[ERORR at initMSAL] Unable to create Application Context: \(error)")
         }
         
         self.loadCurrentAccount()
-        // platformViewDidLoadSetup
-//        NotificationCenter.default.addObserver(self, selector: #selector(appCameToForeGround(notification:)),name: UIApplication.willEnterForegroundNotification, object: nil)
+        
+        // func platformViewDidLoadSetup()
+        // NotificationCenter.default.addObserver(self, selector: #selector(appCameToForeGround(notification:)),name: UIApplication.willEnterForegroundNotification, object: nil)
+
+        signOutButton = UIButton()
+        signOutButton.translatesAutoresizingMaskIntoConstraints = false
+        signOutButton.setTitle("SignIn", for: .normal)
+        signOutButton.setTitleColor(.blue, for: .normal)
+        signOutButton.setTitleColor(.gray, for: .disabled)
+        signOutButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
+        self.view.addSubview(signOutButton)
+        
+        //signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        signOutButton.center = self.view.center
+        //signOutButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
+        //signOutButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        self.loadCurrentAccount()
     }
     
-
+    func acquireTokenSilently(_ account : MSALAccount!) {
+        
+        guard let applicationContext = self.applicationContext else { return }
+        
+        let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
+        
+        applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
+            
+            if let error = error {
+                
+                let nsError = error as NSError
+                
+                // interactionRequired means we need to ask the user to sign-in. This usually happens
+                // when the user's Refresh Token is expired or if the user has changed their password
+                // among other possible reasons.
+                
+                if (nsError.domain == MSALErrorDomain) {
+                    
+                    if (nsError.code == MSALError.interactionRequired.rawValue) {
+                        
+                        DispatchQueue.main.async {
+                            self.acquireTokenInteractively()
+                        }
+                        return
+                    }
+                }
+                
+                self.delegate?.DisplayError(msg: "Could not acquire token silently: \(error)")
+                return
+            }
+            
+            guard let result = result else {
+                
+                self.delegate?.DisplayError(msg: "Could not acquire token: No result returned")
+                return
+            }
+            
+            self.accessToken = result.accessToken
+            self.delegate?.DisplayError(msg: "Refreshed Access token is \(self.accessToken)")
+            self.delegate?.UserLogedin()
+            self.getUserInfoWithToken()
+        }
+    }
+    
+    func acquireTokenInteractively() {
+        
+        guard let applicationContext = self.applicationContext else { return }
+        guard let webViewParameters = self.webViewParamaters else { return }
+        
+        let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
+        parameters.promptType = .selectAccount
+        
+        applicationContext.acquireToken(with: parameters) { (result, error) in
+            
+            if let error = error {
+                
+                self.delegate?.DisplayError(msg: "Could not acquire token: \(error)")
+                return
+            }
+            
+            guard let result = result else {
+                
+                self.delegate?.DisplayError(msg: "Could not acquire token: No result returned")
+                return
+            }
+            
+            self.accessToken = result.accessToken
+            print("We have the item \(result)")
+            self.delegate?.SnapUpdate(displayName: "", ProfilePicture: UIImage(), token: result.accessToken)
+            self.currentAccount = result.account
+            self.getUserInfoWithToken()
+            print("Exiting now")
+            
+        }
+    }
+    
+    func getUserInfoWithToken() {
+        
+        // Specify the Graph API endpoint
+        let url = URL(string: "\(kGraphEndpoint)v1.0/me")
+        var request = URLRequest(url: url!)
+        
+        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
+        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            if let error = error {
+                self.delegate?.DisplayError(msg: "Couldn't get graph result: \(error)")
+                return
+            }
+            var result: Any
+            do {
+                result = try JSONSerialization.jsonObject(with: data!, options: [])
+                print("Result from Graph: \(result)")
+                //self.delegate?.DisplayError(msg: "Result from Graph: \(result))")
+                if let displayName = (result as AnyObject)["displayName"] as? String {
+                    print(displayName)
+                    self.delegate?.SnapUpdate(displayName: displayName, ProfilePicture: UIImage(), token: self.accessToken)
+                    self.delegate?.UserDoneLogedin()
+                } else {
+                    print("No displayName")
+                }
+            } catch {
+                print("Response:", response ?? "no response")
+                print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)):", error)
+                self.delegate?.DisplayError(msg: "Couldn't deserialize result JSON")
+                self.delegate?.UserDoneLogedin()
+            }
+        }.resume()
+    }
+    
     func loadCurrentAccount() {
         
         guard let applicationContext = self.applicationContext else { return }
@@ -120,14 +253,20 @@ class LoginViewController: UIViewController {
             }
             
             if let currentAccount = currentAccount {
-                
-                self.delegate?.DisplayError(msg: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
+                self.delegate?.DisplayError(msg: "Found a signed in account \(currentAccount.username ?? "No user name"). Updating data for that account...")
+                print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
+                self.acquireTokenSilently(currentAccount)
+                // get token silently // zonder user input
+
+                self.getUserInfoWithToken()
+                // Doe hier iets met graph api en ui updaten
+                self.delegate?.UserDoneLogedin()
                 return
             } else {
                 self.accessToken = ""
                 self.currentAccount = nil
-                self.delegate?.SnapUpdate(displayName: "Account signed out", ProfilePicture: UIImage(), token: "")
-                return
+                self.delegate?.SnapUpdate(displayName: "Account is signed out", ProfilePicture: UIImage(), token: "")
+                //UserDoneLogedin()
             }
         })
     }
@@ -145,11 +284,10 @@ class LoginViewController: UIViewController {
                                                                   redirectUri: kRedirectUri,
                                                                   authority: authority)
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-        self.initWebViewParams()
+        
     }
-    
-    func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+    @objc func signIn(_ sender: UIButton) {
+        self.acquireTokenInteractively()
     }
 }
 

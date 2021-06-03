@@ -24,7 +24,7 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .padding(10)
                 .font(.largeTitle)
-            Text(token)
+            Text(token.prefix(15))
                 .font(.caption)
                 .multilineTextAlignment(.center)
             Button("Microsoft Login Button") {
