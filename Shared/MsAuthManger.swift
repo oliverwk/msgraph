@@ -15,7 +15,7 @@ class MsAuthManger: ObservableObject {
     @Published var logedIn: Bool = false
     @Published var accessToken: String = ""
     @Published var ProfilePicture: UIImage = UIImage()
-    var currentAccount: MSALAccount?
+    @Published var currentAccount: MSALAccount?
     let MsScopes: [String] = ["user.read"]
     
     
@@ -50,11 +50,12 @@ class MsAuthManger: ObservableObject {
             }
             
             if let currentAccount = currentAccount {
-                self.ErrorMsg = "Found a signed in account \(currentAccount.username ?? "No user name"). Updating data for that account..."
+                self.ErrorMsg = "Found a signed in account \(currentAccount.username ?? "No user name")."
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
-                self.acquireTokenSilently(currentAccount)
                 // Hier completion doen
-                self.getUserInfoWithToken()
+                self.acquireTokenSilently(account: currentAccount) {
+                    self.getUserInfoWithToken()
+                }
                 return
             } else {
                 self.accessToken = ""
@@ -63,8 +64,9 @@ class MsAuthManger: ObservableObject {
             }
         })
     }
-    
-    func acquireTokenSilently(_ account : MSALAccount!) {
+
+
+    func acquireTokenSilently(account : MSALAccount!, complete: (() -> Void)?) {
         
         guard let applicationContext = self.applicationContext else { return }
         
@@ -101,10 +103,9 @@ class MsAuthManger: ObservableObject {
             
             DispatchQueue.main.async {
                 self.accessToken = result.accessToken
-                self.ErrorMsg = "Refreshed Access token is \(self.accessToken)"
+                //self.ErrorMsg = "Refreshed Access token is \(self.accessToken)"
+                complete!()
             }
-            
-            self.getUserInfoWithToken()
         }
     }
     

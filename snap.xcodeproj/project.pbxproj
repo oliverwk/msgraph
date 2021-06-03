@@ -23,6 +23,8 @@
 		E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
 		E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
 		E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
+		E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDB44E266967EB00238E97 /* LogOutView.swift */; };
+		E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDB44E266967EB00238E97 /* LogOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,7 @@
 		E6BB021326690FE8007BA005 /* snap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snap.entitlements; sourceTree = "<group>"; };
 		E6BB02172669272C007BA005 /* MsAuthManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsAuthManger.swift; sourceTree = "<group>"; };
 		E6BB021A2669379D007BA005 /* DebugToggle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DebugToggle.bundle; sourceTree = "<group>"; };
+		E6DDB44E266967EB00238E97 /* LogOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogOutView.swift; path = Pods/LogOutView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,7 @@
 			children = (
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
+				E6DDB44E266967EB00238E97 /* LogOutView.swift */,
 				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
@@ -308,6 +312,7 @@
 			files = (
 				E6A4F6B325FE52A100C1EC9A /* LoginModal.swift in Sources */,
 				E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
+				E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */,
 				E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */,
@@ -320,6 +325,7 @@
 			files = (
 				E6A4F6B425FE52A100C1EC9A /* LoginModal.swift in Sources */,
 				E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
+				E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69725FE484F00C1EC9A /* ContentView.swift in Sources */,
 				E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */,
