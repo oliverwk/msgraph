@@ -96,7 +96,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         do {
             try self.initMSAL()
-            // self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+            self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
         } catch let error {
             print("Unable to create Application Context \(error)")
             self.delegate?.DisplayError(msg: "[ERORR at initMSAL] Unable to create Application Context: \(error)")

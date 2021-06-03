@@ -10,19 +10,12 @@ import Combine
 import SwiftUI
 
 struct LoginCVWrapper: UIViewControllerRepresentable {
-    @Binding private var displayName: String
     @Binding private var isPresented: Bool
-    @Binding private var ProfilePicture: UIImage
-    @Binding private var logedIn: Bool
-    @Binding private var token: String
+    @StateObject private var authManger = MsAuthManger()
     
     
-    init(displayName: Binding<String>, isPresented: Binding<Bool>, ProfilePicture: Binding<UIImage>, logedIn: Binding<Bool>, token: Binding<String>) {
-        _displayName = displayName
+    init(isPresented: Binding<Bool>) {
         _isPresented = isPresented
-        _ProfilePicture = ProfilePicture
-        _logedIn = logedIn
-        _token = token
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
@@ -32,46 +25,32 @@ struct LoginCVWrapper: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-        //not used
+        // not used
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
+    
     class Coordinator: NSObject, LoginViewControlDelegate {
         let parent: LoginCVWrapper
+        var authManger: MsAuthManger
         
         init(_ parent: LoginCVWrapper) {
             self.parent = parent
-        }
-        
-        func SnapUpdate(displayName: String, ProfilePicture: UIImage, token: String) {
-            parent.displayName = displayName
-            parent.ProfilePicture = ProfilePicture
-            parent.token = token
+            self.authManger = parent.authManger
         }
         
         func UserDoneLogedin() {
             parent.$isPresented.wrappedValue.toggle()
-            parent.$logedIn.wrappedValue.toggle()
-        }
-        
-        func UserLogedin() {
-            parent.$logedIn.wrappedValue.toggle()
-        }
-        
-        func DisplayError(msg: String) {
-            parent.displayName = msg
-            parent.$logedIn.wrappedValue = false
+            //parent.$logedIn.wrappedValue.toggle()
         }
     }
 }
 
-public protocol LoginViewControlDelegate : NSObjectProtocol {
-    func SnapUpdate(displayName: String, ProfilePicture: UIImage, token: String)
-    func DisplayError(msg: String)
+protocol LoginViewControlDelegate : NSObjectProtocol {
+    var authManger: MsAuthManger { get set }
     func UserDoneLogedin()
-    func UserLogedin()
 }
 
 class LoginViewController: UIViewController {
@@ -96,29 +75,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         do {
             try self.initMSAL()
-            // self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+            self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
         } catch let error {
             print("Unable to create Application Context \(error)")
-            self.delegate?.DisplayError(msg: "[ERORR at initMSAL] Unable to create Application Context: \(error)")
+            self.delegate?.authManger.ErrorMsg =  "[ERORR at initMSAL] Unable to create Application Context: \(error)"
         }
         
         self.loadCurrentAccount()
-        
-        // func platformViewDidLoadSetup()
-        // NotificationCenter.default.addObserver(self, selector: #selector(appCameToForeGround(notification:)),name: UIApplication.willEnterForegroundNotification, object: nil)
-
-        signOutButton = UIButton()
-        signOutButton.translatesAutoresizingMaskIntoConstraints = false
-        signOutButton.setTitle("SignIn", for: .normal)
-        signOutButton.setTitleColor(.blue, for: .normal)
-        signOutButton.setTitleColor(.gray, for: .disabled)
-        signOutButton.addTarget(self, action: #selector(signIn(_:)), for: .touchUpInside)
-        self.view.addSubview(signOutButton)
-        
-        //signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        signOutButton.center = self.view.center
-        //signOutButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
-        //signOutButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
     }
     
     
@@ -143,9 +106,7 @@ class LoginViewController: UIViewController {
                 // among other possible reasons.
                 
                 if (nsError.domain == MSALErrorDomain) {
-                    
                     if (nsError.code == MSALError.interactionRequired.rawValue) {
-                        
                         DispatchQueue.main.async {
                             self.acquireTokenInteractively()
                         }
@@ -153,20 +114,21 @@ class LoginViewController: UIViewController {
                     }
                 }
                 
-                self.delegate?.DisplayError(msg: "Could not acquire token silently: \(error)")
+                self.delegate?.authManger.ErrorMsg =  "Could not acquire token silently: \(error)"
                 return
             }
             
             guard let result = result else {
                 
-                self.delegate?.DisplayError(msg: "Could not acquire token: No result returned")
+                self.delegate?.authManger.ErrorMsg =  "Could not acquire token: No result returned"
                 return
             }
             
             self.accessToken = result.accessToken
-            self.delegate?.DisplayError(msg: "Refreshed Access token is \(self.accessToken)")
-            self.delegate?.UserLogedin()
-            self.getUserInfoWithToken()
+            self.delegate?.authManger.ErrorMsg =  "Refreshed Access token is \(self.accessToken)"
+            self.delegate?.authManger.logedIn = true
+            self.delegate?.UserDoneLogedin()
+            self.delegate?.authManger.getUserInfoWithToken()
         }
     }
     
@@ -182,61 +144,25 @@ class LoginViewController: UIViewController {
             
             if let error = error {
                 
-                self.delegate?.DisplayError(msg: "Could not acquire token: \(error)")
+                self.delegate?.authManger.ErrorMsg =  "Could not acquire token: \(error)"
                 return
             }
             
             guard let result = result else {
                 
-                self.delegate?.DisplayError(msg: "Could not acquire token: No result returned")
+                self.delegate?.authManger.ErrorMsg =  "Could not acquire token: No result returned"
                 return
             }
             
             self.accessToken = result.accessToken
             print("We have the item \(result)")
-            self.delegate?.SnapUpdate(displayName: "", ProfilePicture: UIImage(), token: result.accessToken)
+            self.delegate?.authManger.accessToken = result.accessToken
             self.currentAccount = result.account
-            self.getUserInfoWithToken()
-            print("Exiting now")
-            
+            self.delegate?.authManger.getUserInfoWithToken()
         }
     }
     
-    func getUserInfoWithToken() {
-        
-        // Specify the Graph API endpoint
-        let url = URL(string: "\(kGraphEndpoint)v1.0/me")
-        var request = URLRequest(url: url!)
-        
-        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let error = error {
-                self.delegate?.DisplayError(msg: "Couldn't get graph result: \(error)")
-                return
-            }
-            var result: Any
-            do {
-                result = try JSONSerialization.jsonObject(with: data!, options: [])
-                print("Result from Graph: \(result)")
-                //self.delegate?.DisplayError(msg: "Result from Graph: \(result))")
-                if let displayName = (result as AnyObject)["displayName"] as? String {
-                    print(displayName)
-                    self.delegate?.SnapUpdate(displayName: displayName, ProfilePicture: UIImage(), token: self.accessToken)
-                    self.delegate?.UserDoneLogedin()
-                } else {
-                    print("No displayName")
-                }
-            } catch {
-                print("Response:", response ?? "no response")
-                print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)):", error)
-                self.delegate?.DisplayError(msg: "Couldn't deserialize result JSON")
-                self.delegate?.UserDoneLogedin()
-            }
-        }.resume()
-    }
+
     
     func loadCurrentAccount() {
         
@@ -248,25 +174,26 @@ class LoginViewController: UIViewController {
         applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
             
             if let error = error {
-                self.delegate?.DisplayError(msg: "Couldn't query current account with error: \(error)")
+                self.delegate?.authManger.ErrorMsg =  "Couldn't query current account with error: \(error)"
                 return
             }
             
             if let currentAccount = currentAccount {
-                self.delegate?.DisplayError(msg: "Found a signed in account \(currentAccount.username ?? "No user name"). Updating data for that account...")
+                self.delegate?.authManger.ErrorMsg =  "Found a signed in account \(currentAccount.username ?? "No user name"). Updating data for that account..."
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
                 self.acquireTokenSilently(currentAccount)
                 // get token silently // zonder user input
 
-                self.getUserInfoWithToken()
+                self.delegate?.authManger.getUserInfoWithToken()
                 // Doe hier iets met graph api en ui updaten
                 self.delegate?.UserDoneLogedin()
                 return
             } else {
                 self.accessToken = ""
                 self.currentAccount = nil
-                self.delegate?.SnapUpdate(displayName: "Account is signed out", ProfilePicture: UIImage(), token: "")
-                //UserDoneLogedin()
+                self.delegate?.authManger.displayName = "Account is signed out"
+                self.delegate?.authManger.accessToken = ""
+
             }
         })
     }
@@ -274,7 +201,7 @@ class LoginViewController: UIViewController {
     func initMSAL() throws {
         
         guard let authorityURL = URL(string: kAuthority) else {
-            self.delegate?.DisplayError(msg: "Unable to create authority URL")
+            self.delegate?.authManger.ErrorMsg =  "Unable to create authority URL"
             return
         }
         
@@ -286,8 +213,33 @@ class LoginViewController: UIViewController {
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         
     }
-    @objc func signIn(_ sender: UIButton) {
-        self.acquireTokenInteractively()
+    
+    func signOut() {
+        
+        guard let applicationContext = self.applicationContext else { return }
+        
+        guard let account = self.currentAccount else { return }
+        
+        do {
+            
+            let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParamaters!)
+            signoutParameters.signoutFromBrowser = false
+            
+            applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
+                
+                if let error = error {
+                    self.delegate?.authManger.ErrorMsg = "Couldn't sign out account with error: \(error)"
+                    return
+                }
+                
+                self.delegate?.authManger.ErrorMsg = "Sign out completed successfully"
+                self.accessToken = ""
+                self.delegate?.authManger.accessToken = ""
+                print("Hier gaat het wrs fout")
+                self.delegate?.authManger.currentAccount = nil
+            })
+            
+        }
     }
 }
 

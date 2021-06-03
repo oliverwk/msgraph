@@ -19,6 +19,10 @@
 		E6A4F69B25FE484F00C1EC9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6A4F68125FE484F00C1EC9A /* Assets.xcassets */; };
 		E6A4F6B325FE52A100C1EC9A /* LoginModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */; };
 		E6A4F6B425FE52A100C1EC9A /* LoginModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */; };
+		E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
+		E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
+		E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
+		E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,8 @@
 		E6A4F69125FE484F00C1EC9A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModal.swift; sourceTree = "<group>"; };
 		E6BB021326690FE8007BA005 /* snap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snap.entitlements; sourceTree = "<group>"; };
+		E6BB02172669272C007BA005 /* MsAuthManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsAuthManger.swift; sourceTree = "<group>"; };
+		E6BB021A2669379D007BA005 /* DebugToggle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DebugToggle.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,7 @@
 		E6A4F67625FE483100C1EC9A = {
 			isa = PBXGroup;
 			children = (
+				E6BB021A2669379D007BA005 /* DebugToggle.bundle */,
 				E6BB021326690FE8007BA005 /* snap.entitlements */,
 				E6172D8125FEA523004ECDF5 /* iOS */,
 				E6A4F67B25FE483300C1EC9A /* Shared */,
@@ -107,6 +114,7 @@
 			children = (
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
+				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
 				E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */,
@@ -214,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F69A25FE484F00C1EC9A /* Assets.xcassets in Resources */,
+				E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F69B25FE484F00C1EC9A /* Assets.xcassets in Resources */,
+				E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +310,7 @@
 				E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */,
+				E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +322,7 @@
 				E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69725FE484F00C1EC9A /* ContentView.swift in Sources */,
+				E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +453,7 @@
 				DEVELOPMENT_TEAM = 6CDWQZK7UX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +477,7 @@
 				DEVELOPMENT_TEAM = 6CDWQZK7UX;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
