@@ -5,7 +5,7 @@
 //  Created by Olivier Wittop Koning on 14/03/2021.
 //
 
-import SCSDKLoginKit
+import MSAL
 import Combine
 import SwiftUI
 
@@ -129,12 +129,12 @@ class LoginViewController: UIViewController {
             
             if let currentAccount = currentAccount {
                 
-                self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
+                self.delegate?.DisplayError(msg: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
                 return
             } else {
                 self.accessToken = ""
                 self.currentAccount = nil
-                self.delegate?.SnapUpdate(displayName: "Account signed out", ProfilePicture: nil, token: "")
+                self.delegate?.SnapUpdate(displayName: "Account signed out", ProfilePicture: UIImage(), token: "")
                 return
             }
         })
@@ -143,7 +143,7 @@ class LoginViewController: UIViewController {
     func initMSAL() throws {
         
         guard let authorityURL = URL(string: kAuthority) else {
-            self.updateLogging(text: "Unable to create authority URL")
+            self.delegate?.DisplayError(msg: "Unable to create authority URL")
             return
         }
         

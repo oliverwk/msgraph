@@ -16,7 +16,7 @@ struct ContentView: View {
     @State private var token: String = ""
     
     var body: some View {
-        Image(uiImage: bitmojiAvatar)
+        Image(uiImage: ProfilePicture)
             .padding(10)
         Text(displayName)
             .fontWeight(.heavy)
