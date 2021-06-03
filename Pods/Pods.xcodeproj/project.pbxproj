@@ -928,7 +928,7 @@
 		0746DFCF3BB56C0631E3DE879987324B /* MSIDAccountMetadataCacheItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDAccountMetadataCacheItem.m; path = MSAL/IdentityCore/IdentityCore/src/cache/metadata/accountMetadata/MSIDAccountMetadataCacheItem.m; sourceTree = "<group>"; };
 		075B885DBDA4497EE4E547AAFA409726 /* MSIDWorkPlaceJoinConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDWorkPlaceJoinConstants.h; path = MSAL/IdentityCore/IdentityCore/src/workplacejoin/MSIDWorkPlaceJoinConstants.h; sourceTree = "<group>"; };
 		07E0256E271B6C320B49C0D7EC1B776C /* Pods-snap (macOS).modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-snap (macOS).modulemap"; sourceTree = "<group>"; };
-		07FF532D124FFF8567F6B7C7585EB6E6 /* MSAL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MSAL.framework; path = MSAL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07FF532D124FFF8567F6B7C7585EB6E6 /* MSAL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MSAL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		080B57ABCC1915A7670D1E55C33DFBBA /* NSString+MSIDTelemetryExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+MSIDTelemetryExtensions.h"; path = "MSAL/IdentityCore/IdentityCore/src/util/NSString+MSIDTelemetryExtensions.h"; sourceTree = "<group>"; };
 		082278FB2F2DF054F5908CC27818DD60 /* MSIDLastRequestTelemetrySerializedItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDLastRequestTelemetrySerializedItem.m; path = MSAL/IdentityCore/IdentityCore/src/telemetry/request_telemetry/MSIDLastRequestTelemetrySerializedItem.m; sourceTree = "<group>"; };
 		08A5FED44AEE697E999A04E739D68B67 /* MSIDAADRequestConfigurator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDAADRequestConfigurator.h; path = MSAL/IdentityCore/IdentityCore/src/network/request_configurator/MSIDAADRequestConfigurator.h; sourceTree = "<group>"; };
@@ -1442,7 +1442,7 @@
 		9CF176CF08D49BB30E4F1182F892E458 /* MSIDJsonSerializing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDJsonSerializing.h; path = MSAL/IdentityCore/IdentityCore/src/MSIDJsonSerializing.h; sourceTree = "<group>"; };
 		9D5339E7914A7A2770051F7A0574BE36 /* MSIDAuthorityCacheRecord.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDAuthorityCacheRecord.h; path = MSAL/IdentityCore/IdentityCore/src/validation/MSIDAuthorityCacheRecord.h; sourceTree = "<group>"; };
 		9D8A4127E98C0997BE30F4745B0FE621 /* MSIDCurrentRequestTelemetry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDCurrentRequestTelemetry.m; path = MSAL/IdentityCore/IdentityCore/src/telemetry/request_telemetry/MSIDCurrentRequestTelemetry.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9D9D230F91A64DEA66BB1D3DA84ED796 /* Pods-snap (macOS)-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-snap (macOS)-umbrella.h"; sourceTree = "<group>"; };
 		9DEFE8037F17F8C8F077647C135D32BE /* MSIDCredentialCacheItem+MSIDBaseToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MSIDCredentialCacheItem+MSIDBaseToken.m"; path = "MSAL/IdentityCore/IdentityCore/src/cache/token/MSIDCredentialCacheItem+MSIDBaseToken.m"; sourceTree = "<group>"; };
 		9E1FABE1289613647A709D0F6271912E /* MSIDDevicePopManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDDevicePopManager.h; path = MSAL/IdentityCore/IdentityCore/src/pop_manager/MSIDDevicePopManager.h; sourceTree = "<group>"; };
@@ -1622,7 +1622,7 @@
 		CD4C2FFB56192514873DFC2EC3EC4950 /* MSIDAADV2Oauth2FactoryForV1Request.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDAADV2Oauth2FactoryForV1Request.m; path = MSAL/IdentityCore/IdentityCore/src/oauth2/aad_v2/MSIDAADV2Oauth2FactoryForV1Request.m; sourceTree = "<group>"; };
 		CDE6E042299B74C9EB55469CAD51D403 /* MSIDDefaultBrokerTokenRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDDefaultBrokerTokenRequest.m; path = MSAL/IdentityCore/IdentityCore/src/requests/sdk/msal/MSIDDefaultBrokerTokenRequest.m; sourceTree = "<group>"; };
 		CDED0633047CDC3F9EEE0DF5A16AD7CE /* MSIDUserInformation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDUserInformation.h; path = MSAL/IdentityCore/IdentityCore/src/cache/MSIDUserInformation.h; sourceTree = "<group>"; };
-		CE4DC07240185C92AA700264EDCA5190 /* Pods_snap__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_snap__iOS_.framework; path = "Pods-snap (iOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE4DC07240185C92AA700264EDCA5190 /* Pods_snap__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE62C8A45D2DC181B5DAE74656F752A0 /* MSIDPRTCacheItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDPRTCacheItem.h; path = MSAL/IdentityCore/IdentityCore/src/cache/token/MSIDPRTCacheItem.h; sourceTree = "<group>"; };
 		CE9110CF06703005ED1522CAC591E36D /* MSAL_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSAL_Internal.h; path = MSAL/src/MSAL_Internal.h; sourceTree = "<group>"; };
 		CEB2BCCBB162CAABDDDDCB608CEEE889 /* MSIDMetadataCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDMetadataCache.m; path = MSAL/IdentityCore/IdentityCore/src/cache/metadata/MSIDMetadataCache.m; sourceTree = "<group>"; };
@@ -1665,7 +1665,7 @@
 		D763FB5C5A0798034ABEC0DDBBBFE711 /* MSIDLegacyTokenCacheQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDLegacyTokenCacheQuery.h; path = MSAL/IdentityCore/IdentityCore/src/cache/key/MSIDLegacyTokenCacheQuery.h; sourceTree = "<group>"; };
 		D7836ACA6E70C0E2DE18CA59C903ADB2 /* MSIDLegacyTokenCacheKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSIDLegacyTokenCacheKey.m; path = MSAL/IdentityCore/IdentityCore/src/cache/key/MSIDLegacyTokenCacheKey.m; sourceTree = "<group>"; };
 		D7A138D7D51FDD7D2A5A239383E5FD2A /* MSIDClaimsRequest+ClientCapabilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MSIDClaimsRequest+ClientCapabilities.h"; path = "MSAL/IdentityCore/IdentityCore/src/claims/MSIDClaimsRequest+ClientCapabilities.h"; sourceTree = "<group>"; };
-		D84897FF9ECFE453FBBC249CECF2F253 /* Pods_snap__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_snap__macOS_.framework; path = "Pods-snap (macOS).framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D84897FF9ECFE453FBBC249CECF2F253 /* Pods_snap__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8C786B103290ABE1B39509B98FCF575 /* MSALDeviceInfoProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSALDeviceInfoProvider.h; path = MSAL/src/instance/MSALDeviceInfoProvider.h; sourceTree = "<group>"; };
 		D8E30BAFDFF07C7A13252451FDE56C4A /* MSIDMetadataCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MSIDMetadataCache.h; path = MSAL/IdentityCore/IdentityCore/src/cache/metadata/MSIDMetadataCache.h; sourceTree = "<group>"; };
 		D8E45D4BFEAA83723769A6C76ECF66CF /* MSALLoggerConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MSALLoggerConfig.m; path = MSAL/src/configuration/MSALLoggerConfig.m; sourceTree = "<group>"; };
@@ -1836,7 +1836,6 @@
 				AD7B7C78635D7B50A67F9A741C2969A0 /* app-lib */,
 				8A68A9DC6C1BEE09AEFAF7C13AA50560 /* Support Files */,
 			);
-			name = MSAL;
 			path = MSAL;
 			sourceTree = "<group>";
 		};
@@ -3396,7 +3395,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1250;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -4029,7 +4028,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4094,7 +4093,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -4123,7 +4122,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MSAL/MSAL-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MSAL/MSAL-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4195,7 +4194,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/MSAL/MSAL-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/MSAL/MSAL-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

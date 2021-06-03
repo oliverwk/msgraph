@@ -63,6 +63,7 @@ struct LoginCVWrapper: UIViewControllerRepresentable {
 
 public protocol LoginViewControlDelegate : NSObjectProtocol {
     func SnapUpdate(displayName: String, ProfilePicture: UIImage, token: String)
+    func DisplayError(msg: String)
 }
 
 class LoginViewController: UIViewController {
@@ -94,25 +95,16 @@ class LoginViewController: UIViewController {
         
         self.loadCurrentAccount()
         // platformViewDidLoadSetup
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(appCameToForeGround(notification:)),
-                                               name: UIApplication.willEnterForegroundNotification,
-                                               object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(appCameToForeGround(notification:)),name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.loadCurrentAccount()
+//        self.loadCurrentAccount()
     }
     
-    //Snapchat Credential Retrieval Fails Here
-    private func performLogin() {
-        //SCSDKLoginClient.login() never completes once scene becomes active again after Snapchat redirect back to this app.
-        
-        
-    }
-    
+
     func loadCurrentAccount() {
         
         guard let applicationContext = self.applicationContext else { return }
@@ -155,7 +147,12 @@ class LoginViewController: UIViewController {
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         self.initWebViewParams()
     }
+    
+    func initWebViewParams() {
+        self.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
+    }
 }
+
 /*
  Update code
  DispatchQueue.main.async {
