@@ -1,0 +1,8 @@
+*.xcworkspacey
+iOS/info.plist
+.DS_Store
+Pods/.DS_Store
+Shared/.DS_Store
+macOS/.DS_Store
+Shared/snap.xcdatamodeld
+push.sh

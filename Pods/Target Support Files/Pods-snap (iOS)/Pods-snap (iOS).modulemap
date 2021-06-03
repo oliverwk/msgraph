@@ -1,0 +1,6 @@
+framework module Pods_snap__iOS_ {
+  umbrella header "Pods-snap (iOS)-umbrella.h"
+
+  export *
+  module * { export * }
+}
