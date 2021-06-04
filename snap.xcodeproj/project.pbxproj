@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		68FF02DCC89C59AAB1CF6EEF /* Pods_snap__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38DB17873B554156D862864 /* Pods_snap__macOS_.framework */; };
 		B2090C714713DA6F115E4748 /* Pods_snap__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED14048D0D4DFF5A9E76EA /* Pods_snap__iOS_.framework */; };
+		E65887D22669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
+		E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
 		E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */; };
 		E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */; };
 		E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
@@ -35,6 +37,7 @@
 		A38DB17873B554156D862864 /* Pods_snap__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9ED14048D0D4DFF5A9E76EA /* Pods_snap__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		E6A4F67D25FE483300C1EC9A /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E6A4F67E25FE483300C1EC9A /* snapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapApp.swift; sourceTree = "<group>"; };
 		E6A4F67F25FE483300C1EC9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
 				E6DDB44E266967EB00238E97 /* LogOutView.swift */,
+				E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */,
 				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
@@ -311,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F6B325FE52A100C1EC9A /* LoginModal.swift in Sources */,
+				E65887D22669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */,
 				E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
@@ -324,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F6B425FE52A100C1EC9A /* LoginModal.swift in Sources */,
+				E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */,
 				E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,

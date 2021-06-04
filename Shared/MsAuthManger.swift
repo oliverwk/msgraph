@@ -20,7 +20,7 @@ class MsAuthManger: ObservableObject {
     
     
     init() {
-        print("init")
+        print("Initing MsAuthManger")
         let authorityURL = URL(string: "https://login.microsoftonline.com/common")!
         let ClientID = "9936360b-c0c5-4563-9c76-2ff4a6ed96fc"
         let RedirectUri = "msauth.nl.wittopkoning.authgraph://auth"
@@ -28,7 +28,6 @@ class MsAuthManger: ObservableObject {
             let authority = try MSALAADAuthority(url: authorityURL)
             let msalConfiguration = MSALPublicClientApplicationConfig(clientId: ClientID, redirectUri: RedirectUri, authority: authority)
             self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-            
         } catch {
             self.ErrorMsg = "Error At init \(error)"
         }
@@ -53,6 +52,7 @@ class MsAuthManger: ObservableObject {
                 self.ErrorMsg = "Found a signed in account \(currentAccount.username ?? "No user name")."
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
                 // Hier completion doen
+                self.logedIn = true
                 self.acquireTokenSilently(account: currentAccount) {
                     self.getUserInfoWithToken()
                 }
@@ -60,6 +60,7 @@ class MsAuthManger: ObservableObject {
             } else {
                 self.accessToken = ""
                 self.currentAccount = nil
+                self.logedIn = false
                 self.ErrorMsg = "Account is signed out"
             }
         })
@@ -86,6 +87,9 @@ class MsAuthManger: ObservableObject {
                     if (nsError.code == MSALError.interactionRequired.rawValue) {
                         DispatchQueue.main.async {
                             print("Needs action")
+                            DispatchQueue.main.async {
+                                self.logedIn = false
+                            }
                             //self.acquireTokenInteractively()
                         }
                         return
@@ -93,21 +97,31 @@ class MsAuthManger: ObservableObject {
                 }
                 
                 self.ErrorMsg = "Could not acquire token silently: \(error)"
+                DispatchQueue.main.async {
+                    self.logedIn = false
+                }
                 return
             }
             
             guard let result = result else {
-                self.ErrorMsg = "Could not acquire token: No result returned"
+                DispatchQueue.main.async {
+                    self.ErrorMsg = "Could not acquire token: No result returned"
+                    self.logedIn = false
+                }
                 return
             }
             
             DispatchQueue.main.async {
                 self.accessToken = result.accessToken
+                DispatchQueue.main.async {
+                    self.logedIn = true
+                }
                 //self.ErrorMsg = "Refreshed Access token is \(self.accessToken)"
                 complete!()
             }
         }
     }
+    
     
     func getUserInfoWithToken() {
         
@@ -125,12 +139,14 @@ class MsAuthManger: ObservableObject {
                     if httpResponse.statusCode == 403 {
                         output = "Acces token isn't good"
                         // Hier Dan get token callen
+                        
                     } else {
                         output = "Couldn't get graph result: \(error)"
                     }
                 }
                 DispatchQueue.main.async {
                     self.ErrorMsg = output
+                    self.logedIn = false
                 }
                 return
 
