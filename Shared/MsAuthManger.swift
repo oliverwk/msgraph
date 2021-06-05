@@ -193,8 +193,35 @@ class MsAuthManger: ObservableObject {
             }
             
             if let d = data {
+                var image = UIImage(data: d)
+                if let img = image {
+                    
+                    let targetSize = CGSize(width: 100, height: 100)
+
+                    // Compute the scaling ratio for the width and height separately
+                    let widthScaleRatio = targetSize.width / (img.size.width)
+                    let heightScaleRatio = targetSize.height / (img.size.height)
+
+                    // To keep the aspect ratio, scale by the smaller scaling ratio
+                    let scaleFactor = min(widthScaleRatio, heightScaleRatio)
+
+                    // Multiply the original image’s dimensions by the scale factor
+                    // to determine the scaled image size that preserves aspect ratio
+                    let scaledImageSize = CGSize(
+                        width: (img.size.width) * scaleFactor,
+                        height: (img.size.height) * scaleFactor
+                    )
+                    let renderer = UIGraphicsImageRenderer(size: scaledImageSize)
+                    image = renderer.image { _ in
+                        img.draw(in: CGRect(origin: .zero, size: scaledImageSize))
+                    }
+                } else {
+                    image = UIImage(systemName: "person.fill")!
+                }
+                
+                
                 DispatchQueue.main.async {
-                    self.ProfilePicture = UIImage(data: d) ?? UIImage(systemName: "person.fill")!
+                    self.ProfilePicture = image!
                 }
             } else {
                 print("No data with profile picture")

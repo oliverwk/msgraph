@@ -11,11 +11,12 @@ import SwiftUI
 
 struct LoginCVWrapper: UIViewControllerRepresentable {
     @Binding private var isPresented: Bool
-    @StateObject private var authManger = MsAuthManger()
+    @StateObject private var authManger: MsAuthManger
     
     
-    init(isPresented: Binding<Bool>) {
+    init(isPresented: Binding<Bool>, authManger: StateObject<MsAuthManger>) {
         _isPresented = isPresented
+        _authManger = authManger
     }
     
     func makeUIViewController(context: Context) -> UIViewController {
@@ -43,7 +44,6 @@ struct LoginCVWrapper: UIViewControllerRepresentable {
         
         func UserDoneLogedin() {
             parent.$isPresented.wrappedValue.toggle()
-            //parent.$logedIn.wrappedValue.toggle()
         }
     }
 }
@@ -127,8 +127,8 @@ class LoginViewController: UIViewController {
             self.accessToken = result.accessToken
             self.delegate?.authManger.ErrorMsg =  "Refreshed Access token is \(self.accessToken)"
             self.delegate?.authManger.logedIn = true
-            self.delegate?.UserDoneLogedin()
             self.delegate?.authManger.getUserInfoWithToken()
+            self.delegate?.UserDoneLogedin()
         }
     }
     
@@ -159,6 +159,7 @@ class LoginViewController: UIViewController {
             self.delegate?.authManger.accessToken = result.accessToken
             self.currentAccount = result.account
             self.delegate?.authManger.getUserInfoWithToken()
+            self.delegate?.UserDoneLogedin()
         }
     }
     
@@ -193,7 +194,7 @@ class LoginViewController: UIViewController {
                 self.currentAccount = nil
                 self.delegate?.authManger.displayName = "Account is signed out"
                 self.delegate?.authManger.accessToken = ""
-
+                self.acquireTokenInteractively()
             }
         })
     }

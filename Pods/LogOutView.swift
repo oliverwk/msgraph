@@ -21,7 +21,6 @@ class LogoutViewController: UIViewController {
             signOut()
         } else {
             self.delegate?.authManger.ErrorMsg = "Singed out please help"
-            // Hier misschien 3 sec wachten
         }
     }
     
