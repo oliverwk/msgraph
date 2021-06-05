@@ -12,10 +12,9 @@ import UIKit
 
 struct LogoutViewControllerRepresentable: UIViewControllerRepresentable {
     @Binding private var isPresented: Bool
-    @ObservedObject private var authManger: MsAuthManger
+    @StateObject private var authManger: MsAuthManger
     
-    
-    init(isPresented: Binding<Bool>, authManger: ObservedObject<MsAuthManger>) {
+    init(isPresented: Binding<Bool>, authManger: StateObject<MsAuthManger>) {
         _isPresented = isPresented
         _authManger = authManger
     }
@@ -26,7 +25,7 @@ struct LogoutViewControllerRepresentable: UIViewControllerRepresentable {
         return logoutView
     }
     
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    func updateUIViewController(_ UIView: UIViewController, context: Context) {
         // not used
     }
     
@@ -35,12 +34,14 @@ struct LogoutViewControllerRepresentable: UIViewControllerRepresentable {
     }
     
     class Coordinator: NSObject, LogoutViewControlDelegate {
-        let parent: LogoutViewControllerRepresentable
         var authManger: MsAuthManger
+        
+        var parent: LogoutViewControllerRepresentable
+        
         
         init(_ parent: LogoutViewControllerRepresentable) {
             self.parent = parent
-            self.authManger = parent.authManger
+            self.authManger = self.parent.authManger
         }
         
         func UserDoneLogedOut() {

@@ -13,7 +13,6 @@ struct ContentView: View {
     @State private var isPresentedSignIn: Bool = false
     @State private var isPresentedLogOut: Bool = false
     @StateObject private var authManger = MsAuthManger()
-    //@EnvironmentObject var authManger: MsAuthManger
     
     var body: some View {
         ScrollView {
@@ -39,7 +38,7 @@ struct ContentView: View {
                     print("logedIn:", authManger.logedIn)
                 }.disabled(!authManger.logedIn).opacity(authManger.logedIn ? 1 : 0)
                 .sheet(isPresented: $isPresentedLogOut) {
-                    LogoutViewControllerRepresentable(isPresented: $isPresentedLogOut, authManger: $authManger)
+                    LogoutViewControllerRepresentable(isPresented: $isPresentedLogOut, authManger: _authManger)
                 }
             }
         }

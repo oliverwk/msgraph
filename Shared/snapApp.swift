@@ -10,6 +10,7 @@ import MSAL
 
 @main
 struct snapApp: App {
+    @StateObject private var authManger = MsAuthManger()
     
     var body: some Scene {
         WindowGroup {
@@ -21,6 +22,7 @@ struct snapApp: App {
                         print("We can't handle the url: \(url)")
                     }
                 })
+                .environmentObject(authManger)
                 .onAppear(perform: {
                     MSALGlobalConfig.loggerConfig.setLogCallback { (logLevel, message, containsPII) in
                         

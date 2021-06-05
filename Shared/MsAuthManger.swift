@@ -51,7 +51,7 @@ class MsAuthManger: ObservableObject {
             if let currentAccount = currentAccount {
                 self.ErrorMsg = "Found a signed in account \(currentAccount.username ?? "No user name")."
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
-                // Hier completion doen
+                self.currentAccount = currentAccount
                 self.logedIn = true
                 self.acquireTokenSilently(account: currentAccount) {
                     self.getUserInfoWithToken()
