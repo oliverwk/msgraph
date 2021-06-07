@@ -2,16 +2,16 @@
 //  Structs.swift
 //  snap
 //
-//  Created by Maarten Wittop Koning on 06/06/2021.
+//  Created by Olivier Wittop Koning on 06/06/2021.
 //
 //   let TeamsEvents = try? newJSONDecoder().decode(TeamsEvent.self, from: jsonData)
 
 import Foundation
 
 // MARK: - Welcome
-struct TeamsEvent: Codable {
+struct TeamsEvents: Codable {
     let odataContext: String
-    let value: [Value]
+    let value: [TeamsEvent]
 
     enum CodingKeys: String, CodingKey {
         case odataContext = "@odata.context"
@@ -20,7 +20,7 @@ struct TeamsEvent: Codable {
 }
 
 // MARK: - Value
-struct Value: Codable {
+struct TeamsEvent: Codable {
     let odataEtag, id, createdDateTime, lastModifiedDateTime: String
     let changeKey: String
     let categories: [JSONAny]

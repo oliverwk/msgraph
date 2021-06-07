@@ -6,17 +6,22 @@
 //
 
 import MSAL
+import Combine
 
 class MsAuthManger: ObservableObject {
     
+    public var AccessTokenCahnged = PassthroughSubject<Void, Never>()
     @Published var displayName: String = ""
     @Published var ErrorMsg: String = ""
     @Published var applicationContext: MSALPublicClientApplication?
     @Published var logedIn: Bool = false
-    @Published var accessToken: String = ""
+    @Published var accessToken: String = ""  { didSet { AccessTokenCahnged.send() } }
     @Published var ProfilePicture: UIImage = UIImage()
     @Published var currentAccount: MSALAccount?
     @Published var TokenCallback: ((Date) -> Void)?
+    @Published var GetTokenWithUICallback: (() -> Void)?
+    @Published var webViewParamaters: MSALWebviewParameters?
+    
     let MsScopes: [String] = ["user.read", "calendars.read"]
     
     
@@ -33,14 +38,16 @@ class MsAuthManger: ObservableObject {
         } catch {
             self.ErrorMsg = "Error At init \(error)"
         }
-        self.TokenCallback = tmp
+        self.TokenCallback = TokenCallbackPlaceholder
+        self.GetTokenWithUICallback = GetTokenWithUICallbackPlacerholder
         self.loadCurrentAccount()
     }
     
-    func tmp(_ datum: Date) { print("hi") }
+    func TokenCallbackPlaceholder(_ datum: Date) { print("hi, from TokenCallback") }
+    func GetTokenWithUICallbackPlacerholder() { print("hi, from GetTokenWithUICallback") }
     
-    func loadCurrentAccount() {
-        
+    func loadCurrentAccount(CalledFromLoginModal: Bool? = false) {
+        print("CalledFromLoginModal: \(String(describing: CalledFromLoginModal))")
         guard let applicationContext = self.applicationContext else { return }
         
         let msalParameters = MSALParameters()
@@ -63,10 +70,20 @@ class MsAuthManger: ObservableObject {
                 }
                 return
             } else {
+                self.displayName = ""
+                self.ProfilePicture = UIImage()
                 self.accessToken = ""
                 self.currentAccount = nil
                 self.logedIn = false
                 self.ErrorMsg = "Account is signed out"
+                if let calledFromLoginModal = CalledFromLoginModal {
+                    if calledFromLoginModal {
+                        if let getTokenWithUICallback = self.GetTokenWithUICallback {
+                            print("Calling GetTokenWithUICallback()")
+                            getTokenWithUICallback()
+                        }
+                    }
+                }
             }
         })
     }
@@ -94,6 +111,10 @@ class MsAuthManger: ObservableObject {
                             print("Needs action")
                             DispatchQueue.main.async {
                                 self.logedIn = false
+                            }
+                            if let getTokenWithUICallback = self.GetTokenWithUICallback {
+                                print("Calling GetTokenWithUICallback()")
+                                getTokenWithUICallback()
                             }
                             //self.acquireTokenInteractively()
                         }
@@ -140,7 +161,7 @@ class MsAuthManger: ObservableObject {
         
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-        print("Making reqeust to /me with token: \(self.accessToken)")
+        print("Making request to /me with token: \(self.accessToken)")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 var output = ""
