@@ -1,8 +1,8 @@
 //
 //  LogOutView.swift
-//  Pods
+//  snap
 //
-//  Created by Maarten Wittop Koning on 03/06/2021.
+//  Created by Olivier Wittop Koning on 03/06/2021.
 //
 
 import MSAL

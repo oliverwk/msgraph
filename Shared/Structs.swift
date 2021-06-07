@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - TeamsEvents
 struct TeamsEvents: Codable {
     let odataContext: String
     let value: [TeamsEvent]
@@ -19,7 +19,7 @@ struct TeamsEvents: Codable {
     }
 }
 
-// MARK: - Value
+// MARK: - TeamsEvent
 struct TeamsEvent: Codable {
     let odataEtag, id, createdDateTime, lastModifiedDateTime: String
     let changeKey: String
@@ -43,7 +43,7 @@ struct TeamsEvent: Codable {
     let body: Body
     let start, end: End
     let location: Location
-    let locations, attendees: [JSONAny]
+    let locations, attendees: [Location?]
     let organizer: Organizer
 
     enum CodingKeys: String, CodingKey {
@@ -76,7 +76,7 @@ struct onlineMeetingStruct: Codable {
 struct Location: Codable {
     let displayName: String?
     let locationType, uniqueIDType: String
-    let address, coordinates: Address
+    let address, coordinates: Address?
 
     enum CodingKeys: String, CodingKey {
         case displayName, locationType

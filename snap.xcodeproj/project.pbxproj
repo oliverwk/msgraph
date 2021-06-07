@@ -12,8 +12,6 @@
 		E65887D22669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
 		E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
 		E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
-		E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */; };
-		E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */; };
 		E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
 		E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
 		E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67F25FE483300C1EC9A /* ContentView.swift */; };
@@ -46,7 +44,6 @@
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDataGraph.swift; sourceTree = "<group>"; };
-		E6A4F67D25FE483300C1EC9A /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E6A4F67E25FE483300C1EC9A /* snapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapApp.swift; sourceTree = "<group>"; };
 		E6A4F67F25FE483300C1EC9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6A4F68125FE484F00C1EC9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,7 +137,6 @@
 				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
-				E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -334,7 +330,6 @@
 				E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */,
 				E6AF5F20266D6761000DC0B0 /* Structs.swift in Sources */,
 				E6AF5F1A266BE5C6000DC0B0 /* CalendarView.swift in Sources */,
-				E6A4F69225FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6AF5F1D266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
@@ -351,7 +346,6 @@
 				E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */,
 				E6AF5F21266D6761000DC0B0 /* Structs.swift in Sources */,
 				E6AF5F1B266BE5C6000DC0B0 /* CalendarView.swift in Sources */,
-				E6A4F69325FE484F00C1EC9A /* snap.xcdatamodeld in Sources */,
 				E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6AF5F1E266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
@@ -608,19 +602,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E6A4F67C25FE483300C1EC9A /* snap.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E6A4F67D25FE483300C1EC9A /* Shared.xcdatamodel */,
-			);
-			currentVersion = E6A4F67D25FE483300C1EC9A /* Shared.xcdatamodel */;
-			path = snap.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E6A4F67725FE483100C1EC9A /* Project object */;
 }

@@ -153,60 +153,6 @@ class MsAuthManger: ObservableObject {
         }
     }
     
-    
-    func getCalender() {
-        
-        // Specify the Graph API endpoint
-//        let volgendeweek = Date().addingTimeInterval(604800)
-        let url = URL(string: "https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=2021-06-07T15:26:05Z&enddatetime=2021-06-14T15:26:05Z")
-        var request = URLRequest(url: url!)
-        
-        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
-        request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-        print("Making request to /me with token: \(self.accessToken)")
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                var output = ""
-                if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode == 403 {
-                        output = "Acces token isn't good"
-                        // Hier Dan get token callen
-                        
-                    } else {
-                        output = "Couldn't get graph result: \(error)"
-                    }
-                }
-                DispatchQueue.main.async {
-                    self.ErrorMsg = output
-                    self.logedIn = false
-                }
-                return
-                
-            } else {
-                var result: Any
-                do {
-                    result = try JSONSerialization.jsonObject(with: data!, options: [])
-                    print("Result from Graph: \(result)")
-                    self.GetPhoto()
-                    
-                    //self.delegate?.DisplayError(msg: "Result from Graph: \(result))")
-                    if let displayName = (result as AnyObject)["displayName"] as? String {
-                        print(displayName)
-                        DispatchQueue.main.async {
-                            self.logedIn = true
-                            self.displayName = displayName // ProfilePicture: UIImage()
-                        }
-                    } else {
-                        print("No displayName")
-                    }
-                } catch {
-                    print("Response:", response ?? "no response")
-                    print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)):", error)
-                    self.ErrorMsg = "Couldn't deserialize result JSON"
-                }
-            }
-        }.resume()
-    }
 
     func getUserInfoWithToken() {
         
