@@ -37,7 +37,6 @@ class LogoutViewController: UIViewController {
         guard let account = self.delegate?.authManger.currentAccount else { print("No currentAccount"); return }
         
         do {
-
             let signoutParameters = MSALSignoutParameters()
             signoutParameters.signoutFromBrowser = false
             

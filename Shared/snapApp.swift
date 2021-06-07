@@ -10,22 +10,19 @@ import MSAL
 
 @main
 struct snapApp: App {
-//    @StateObject private var authManger = MsAuthManger()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .onOpenURL(perform: { url in
                     if MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: nil) {
-                      print("We can handle the url")
+                        print("We can handle the url")
                     } else {
                         print("We can't handle the url: \(url)")
                     }
                 })
-//                .environmentObject(authManger)
                 .onAppear(perform: {
                     MSALGlobalConfig.loggerConfig.setLogCallback { (logLevel, message, containsPII) in
-                        
                         // If PiiLoggingEnabled is set YES, this block will potentially contain sensitive information (Personally Identifiable Information), but not all messages will contain it.
                         // containsPII == YES indicates if a particular message contains PII.
                         // You might want to capture PII only in debug builds, or only if you take necessary actions to handle PII properly according to legal requirements of the region

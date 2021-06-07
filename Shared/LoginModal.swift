@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
         } else {
             print("No delegate")
         }
-       
+        
         guard let applicationContext = self.delegate?.authManger.applicationContext else { return }
         guard let webViewParameters = self.delegate?.authManger.webViewParamaters else { return }
         
@@ -92,7 +92,6 @@ class LoginViewController: UIViewController {
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
             if let error = error {
-                
                 self.delegate?.authManger.ErrorMsg =  "Could not acquire token: \(error)"
                 return
             }

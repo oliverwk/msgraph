@@ -44,7 +44,7 @@ public class CalendarFetcher: ObservableObject {
         let url = urlcomponents?.url
         if let theUrl = url {
             
-            //        let url = URL(string: "https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=2021-06-07T15:26:05Z&enddatetime=2021-06-14T15:26:05Z")
+            //let url = URL(string: "https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=2021-06-07T15:26:05Z&enddatetime=2021-06-14T15:26:05Z")
             var request = URLRequest(url: theUrl)
             
             // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
@@ -57,7 +57,6 @@ public class CalendarFetcher: ObservableObject {
                         if httpResponse.statusCode == 403 {
                             output = "Acces token isn't good"
                             // Hier Dan get token callen
-                            
                         } else {
                             output = "Couldn't get graph result: \(error)"
                         }
@@ -73,12 +72,12 @@ public class CalendarFetcher: ObservableObject {
                     do {
                         result = try JSONSerialization.jsonObject(with: data!, options: [])
                         print("Result from Graph: \(result)")
-//                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Result from Graph: \(result))" }
+                        // DispatchQueue.main.async { self.authManger.ErrorMsg = "Result from Graph: \(result))" }
                         let teamsEvents = (try JSONDecoder().decode(TeamsEvents.self, from: data!)).value
                         let dateFormatter = DateFormatter()
-                        dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+                        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss"
-//                        self.CalendarEvents = teamsEvents
+                        // self.CalendarEvents = teamsEvents
                         for event in teamsEvents {
                             self.CalendarEvents.append(Event(name: event.subject, description: event.bodyPreview, start: dateFormatter.date(from: event.start.dateTime)!, location: event.location.displayName ?? "Geen Location"))
                         }

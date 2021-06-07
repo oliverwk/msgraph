@@ -20,7 +20,7 @@ struct MsError: Codable {
 // MARK: - InnerError
 struct InnerError: Codable {
     let date, requestID, clientRequestID: String
-
+    
     enum CodingKeys: String, CodingKey {
         case date
         case requestID = "request-id"

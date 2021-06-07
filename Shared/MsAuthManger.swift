@@ -153,7 +153,7 @@ class MsAuthManger: ObservableObject {
         }
     }
     
-
+    
     func getUserInfoWithToken() {
         
         // Specify the Graph API endpoint

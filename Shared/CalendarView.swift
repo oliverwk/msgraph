@@ -9,9 +9,11 @@ import SwiftUI
 
 struct CalendarView: View {
     @StateObject private var calendarFetcher: CalendarFetcher
+    let formatter = DateFormatter()
     
     init(auhtmanger: StateObject<MsAuthManger>) {
         _calendarFetcher = StateObject(wrappedValue: CalendarFetcher(authManger: auhtmanger))
+        formatter.dateFormat = "HH:mm"
     }
     
     var body: some View {
@@ -22,12 +24,16 @@ struct CalendarView: View {
                         Text(verbatim: event.name)
                         Text(verbatim: event.location)
                             .font(.footnote)
+                        Spacer()
+                        Text(self.formatter.string(from: event.start))
+                            .font(.footnote)
                     }
                 }
             }
         }
     }
 }
+
 
 struct Event: Codable, Identifiable {
     public var id = UUID()
