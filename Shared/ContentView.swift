@@ -14,7 +14,6 @@ struct ContentView: View {
     @State private var isPresentedLogOut: Bool = false
     @StateObject private var authManger = MsAuthManger()
     
-    //let events = [Event(name: "O&O", description: "O&O Eigen planning", start: Date(timeIntervalSinceNow: 1)), Event(name: "Wiskunde", description: "Opdarcht 31,34", start: Date(timeIntervalSinceNow: 1))]
     var body: some View {
         VStack {
             Image(uiImage: authManger.ProfilePicture)

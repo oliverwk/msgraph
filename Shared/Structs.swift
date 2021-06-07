@@ -37,7 +37,7 @@ struct TeamsEvent: Codable {
     let onlineMeetingProvider: String
     let allowNewTimeProposals, isDraft, hideAttendees: Bool
     let recurrence: JSONNull?
-    let onlineMeeting: String?
+    let onlineMeeting: JSONNull?
     let responseStatus: ResponseStatus
     let body: Body
     let start, end: End
