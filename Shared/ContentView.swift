@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var isPresentedSignIn: Bool = false
     @State private var isPresentedLogOut: Bool = false
     @StateObject private var authManger = MsAuthManger()
+    
     let events = [Event(name: "O&O", description: "O&O Eigen planning", start: Date(timeIntervalSinceNow: 1)), Event(name: "Wiskunde", description: "Opdarcht 31,34", start: Date(timeIntervalSinceNow: 1))]
     var body: some View {
         VStack {
@@ -26,7 +27,7 @@ struct ContentView: View {
             Text(authManger.ErrorMsg)
                 .font(.caption)
                 .multilineTextAlignment(.center)
-            CalendarView(events: events)
+            CalendarView(auhtmanger: _authManger)
             Button("Microsoft Login Button") {
                 self.$isPresentedSignIn.wrappedValue.toggle()
             }.disabled(authManger.logedIn).opacity(authManger.logedIn ? 0 : 1)

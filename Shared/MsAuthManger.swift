@@ -16,11 +16,13 @@ class MsAuthManger: ObservableObject {
     @Published var accessToken: String = ""
     @Published var ProfilePicture: UIImage = UIImage()
     @Published var currentAccount: MSALAccount?
-    let MsScopes: [String] = ["user.read"]
+    @Published var TokenCallback: ((Date) -> Void)?
+    let MsScopes: [String] = ["user.read", "calendars.read"]
     
     
     init() {
         print("Initing MsAuthManger")
+        
         let authorityURL = URL(string: "https://login.microsoftonline.com/common")!
         let ClientID = "9936360b-c0c5-4563-9c76-2ff4a6ed96fc"
         let RedirectUri = "msauth.nl.wittopkoning.authgraph://auth"
@@ -31,8 +33,11 @@ class MsAuthManger: ObservableObject {
         } catch {
             self.ErrorMsg = "Error At init \(error)"
         }
+        self.TokenCallback = tmp
         self.loadCurrentAccount()
     }
+    
+    func tmp(_ datum: Date) { print("hi") }
     
     func loadCurrentAccount() {
         
@@ -65,8 +70,8 @@ class MsAuthManger: ObservableObject {
             }
         })
     }
-
-
+    
+    
     func acquireTokenSilently(account : MSALAccount!, complete: (() -> Void)?) {
         
         guard let applicationContext = self.applicationContext else { return }
@@ -118,6 +123,10 @@ class MsAuthManger: ObservableObject {
                 }
                 //self.ErrorMsg = "Refreshed Access token is \(self.accessToken)"
                 complete!()
+                if let tokenCallback = self.TokenCallback {
+                    print("calling TokenCallback")
+                    tokenCallback(Date().addingTimeInterval(604800))
+                }
             }
         }
     }
@@ -149,7 +158,7 @@ class MsAuthManger: ObservableObject {
                     self.logedIn = false
                 }
                 return
-
+                
             } else {
                 var result: Any
                 do {
@@ -197,14 +206,14 @@ class MsAuthManger: ObservableObject {
                 if let img = image {
                     
                     let targetSize = CGSize(width: 100, height: 100)
-
+                    
                     // Compute the scaling ratio for the width and height separately
                     let widthScaleRatio = targetSize.width / (img.size.width)
                     let heightScaleRatio = targetSize.height / (img.size.height)
-
+                    
                     // To keep the aspect ratio, scale by the smaller scaling ratio
                     let scaleFactor = min(widthScaleRatio, heightScaleRatio)
-
+                    
                     // Multiply the original image’s dimensions by the scale factor
                     // to determine the scaled image size that preserves aspect ratio
                     let scaledImageSize = CGSize(

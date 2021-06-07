@@ -125,10 +125,13 @@ class LoginViewController: UIViewController {
             }
             
             self.accessToken = result.accessToken
-            self.delegate?.authManger.ErrorMsg =  "Refreshed Access token is \(self.accessToken)"
-            self.delegate?.authManger.logedIn = true
-            self.delegate?.authManger.getUserInfoWithToken()
-            self.delegate?.UserDoneLogedin()
+            DispatchQueue.main.async {
+                self.delegate?.authManger.ErrorMsg =  "Refreshed Access token is \(self.accessToken)"
+                self.delegate?.authManger.accessToken = result.accessToken
+                self.delegate?.authManger.logedIn = true
+                self.delegate?.authManger.getUserInfoWithToken()
+                self.delegate?.UserDoneLogedin()
+            }
         }
     }
     
@@ -156,14 +159,16 @@ class LoginViewController: UIViewController {
             
             self.accessToken = result.accessToken
             print("We have the item \(result)")
-            self.delegate?.authManger.accessToken = result.accessToken
-            self.currentAccount = result.account
-            self.delegate?.authManger.getUserInfoWithToken()
-            self.delegate?.UserDoneLogedin()
+            DispatchQueue.main.async {
+                self.delegate?.authManger.accessToken = result.accessToken
+                self.currentAccount = result.account
+                self.delegate?.authManger.getUserInfoWithToken()
+                self.delegate?.UserDoneLogedin()
+            }
         }
     }
     
-
+    
     
     func loadCurrentAccount() {
         
@@ -184,16 +189,19 @@ class LoginViewController: UIViewController {
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
                 self.acquireTokenSilently(currentAccount)
                 // get token silently // zonder user input
-
-                self.delegate?.authManger.getUserInfoWithToken()
-                // Doe hier iets met graph api en ui updaten
-                self.delegate?.UserDoneLogedin()
+                DispatchQueue.main.async {
+                    self.delegate?.authManger.getUserInfoWithToken()
+                    // Doe hier iets met graph api en ui updaten
+                    self.delegate?.UserDoneLogedin()
+                }
                 return
             } else {
                 self.accessToken = ""
                 self.currentAccount = nil
-                self.delegate?.authManger.displayName = "Account is signed out"
-                self.delegate?.authManger.accessToken = ""
+                DispatchQueue.main.async {
+                    self.delegate?.authManger.displayName = "Account is signed out"
+                    self.delegate?.authManger.accessToken = ""
+                }
                 self.acquireTokenInteractively()
             }
         })
@@ -232,12 +240,12 @@ class LoginViewController: UIViewController {
                     self.delegate?.authManger.ErrorMsg = "Couldn't sign out account with error: \(error)"
                     return
                 }
-                
-                self.delegate?.authManger.ErrorMsg = "Sign out completed successfully"
-                self.accessToken = ""
-                self.delegate?.authManger.accessToken = ""
-                print("Hier gaat het wrs fout")
-                self.delegate?.authManger.currentAccount = nil
+                DispatchQueue.main.async {
+                    self.delegate?.authManger.ErrorMsg = "Sign out completed successfully"
+                    self.accessToken = ""
+                    self.delegate?.authManger.accessToken = ""
+                    self.delegate?.authManger.currentAccount = nil
+                }
             })
             
         }

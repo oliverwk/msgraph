@@ -8,24 +8,28 @@
 import SwiftUI
 
 struct CalendarView: View {
-    let events: [Event]
+    @StateObject private var calendarFetcher: CalendarFetcher
+
+    init(auhtmanger: StateObject<MsAuthManger>) {
+        _calendarFetcher = StateObject(wrappedValue: CalendarFetcher(authManger: auhtmanger))
+    }
     
     var body: some View {
         NavigationView {
-            List(events) { site in
-                NavigationLink(destination: Text(site.description)) {
-                    Text(site.name)
+            List(calendarFetcher.CalendarEvents) { event in
+                NavigationLink(destination: Text(verbatim: event.description)) {
+                    Text(verbatim: event.description)
                 }
             }
         }
     }
 }
 
-struct CalendarView_Previews: PreviewProvider {
+/*struct CalendarView_Previews: PreviewProvider {
     static var previews: some View {
         CalendarView(events: [Event(name: "O&O", description: "O&O Eigen planning", start: Date(timeIntervalSinceNow: 1)), Event(name: "Wiskunde", description: "Opdarcht 31, 34", start: Date(timeIntervalSinceNow: 1))])
     }
-}
+}*/
 
 struct Event: Codable, Identifiable {
     public var id = UUID()
