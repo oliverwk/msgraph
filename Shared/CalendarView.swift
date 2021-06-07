@@ -18,7 +18,7 @@ struct CalendarView: View {
         NavigationView {
             List(calendarFetcher.CalendarEvents) { event in
                 NavigationLink(destination: Text(verbatim: event.description)) {
-                    Text(verbatim: event.description)
+                    Text(verbatim: event.name)
                 }
             }
         }

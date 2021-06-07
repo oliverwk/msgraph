@@ -55,6 +55,7 @@ class LogoutViewController: UIViewController {
                     self.delegate?.authManger.currentAccount = nil
                     self.delegate?.authManger.displayName = ""
                     self.delegate?.authManger.ProfilePicture = UIImage()
+                    self.delegate?.authManger.calendarFetcher?.CalendarEvents = []
                     self.delegate?.UserDoneLogedOut()
                 }
             })

@@ -1,17 +1,18 @@
 //
-//  Structs.swift
+//  OutLook.swift
 //  snap
 //
-//  Created by Olivier Wittop Koning on 06/06/2021.
+//  Created by Olivier Wittop Koning on 07/06/2021.
 //
-//   let TeamsEvents = try? newJSONDecoder().decode(TeamsEvent.self, from: jsonData)
+
+//   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
 import Foundation
 
 // MARK: - Welcome
-struct TeamsEvents: Codable {
+struct Welcome: Codable {
     let odataContext: String
-    let value: [TeamsEvent]
+    let value: [Value]
 
     enum CodingKeys: String, CodingKey {
         case odataContext = "@odata.context"
@@ -20,12 +21,11 @@ struct TeamsEvents: Codable {
 }
 
 // MARK: - Value
-struct TeamsEvent: Codable {
+struct Value: Codable {
     let odataEtag, id, createdDateTime, lastModifiedDateTime: String
     let changeKey: String
     let categories: [JSONAny]
-    let transactionID: String?
-    let originalStartTimeZone, originalEndTimeZone, iCalUID: String
+    let transactionID, originalStartTimeZone, originalEndTimeZone, iCalUID: String
     let reminderMinutesBeforeStart: Int
     let isReminderOn, hasAttachments: Bool
     let subject, bodyPreview, importance, sensitivity: String
@@ -33,12 +33,11 @@ struct TeamsEvent: Codable {
     let seriesMasterID: JSONNull?
     let showAs, type: String
     let webLink: String
-    let onlineMeetingURL: String?
+    let onlineMeetingURL: JSONNull?
     let isOnlineMeeting: Bool
     let onlineMeetingProvider: String
     let allowNewTimeProposals, isDraft, hideAttendees: Bool
-    let recurrence: JSONNull?
-    let onlineMeeting: onlineMeetingStruct?
+    let recurrence, onlineMeeting: JSONNull?
     let responseStatus: ResponseStatus
     let body: Body
     let start, end: End
@@ -62,20 +61,17 @@ struct TeamsEvent: Codable {
 
 // MARK: - Body
 struct Body: Codable {
-    let contentType, content: String?
+    let contentType, content: String
 }
 
 // MARK: - End
 struct End: Codable {
     let dateTime, timeZone: String
 }
-struct onlineMeetingStruct: Codable {
-    let joinUrl: String?
-}
+
 // MARK: - Location
 struct Location: Codable {
-    let displayName: String?
-    let locationType, uniqueIDType: String
+    let displayName, locationType, uniqueIDType: String
     let address, coordinates: Address
 
     enum CodingKeys: String, CodingKey {
@@ -102,7 +98,7 @@ struct EmailAddress: Codable {
 // MARK: - ResponseStatus
 struct ResponseStatus: Codable {
     let response: String
-    let time: String
+    let time: Date
 }
 
 // MARK: - Encode/decode helpers
@@ -113,8 +109,8 @@ class JSONNull: Codable, Hashable {
         return true
     }
 
-    func hash(into hasher: inout Hasher) {
-        return  hasher.combine(0)
+    public var hashValue: Int {
+        return 0
     }
 
     public init() {}

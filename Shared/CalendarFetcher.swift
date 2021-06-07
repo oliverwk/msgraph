@@ -73,19 +73,19 @@ public class CalendarFetcher: ObservableObject {
                     do {
                         result = try JSONSerialization.jsonObject(with: data!, options: [])
                         print("Result from Graph: \(result)")
-                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Result from Graph: \(result))" }
+//                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Result from Graph: \(result))" }
                         let teamsEvents = (try JSONDecoder().decode(TeamsEvents.self, from: data!)).value
                         let dateFormatter = DateFormatter()
                         dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss"
 //                        self.CalendarEvents = teamsEvents
                         for event in teamsEvents {
                             self.CalendarEvents.append(Event(name: event.subject, description: event.bodyPreview, start: dateFormatter.date(from: event.start.dateTime)!))
                         }
                     } catch {
                         print("Response:", response ?? "no response")
-                        print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)):", error)
-                        self.authManger.ErrorMsg = "Couldn't deserialize result JSON"
+                        print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)) \n\nen met error: \(error)")
+                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
                     }
                 }
                 
