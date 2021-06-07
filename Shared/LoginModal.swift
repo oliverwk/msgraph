@@ -107,7 +107,7 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self.delegate?.authManger.accessToken = result.accessToken
                 self.delegate?.authManger.currentAccount = result.account
-                self.delegate?.authManger.ErrorMsg = "Loggedin w"
+                self.delegate?.authManger.ErrorMsg = "Signed in an account \(result.account.username ?? "No user name")."
                 self.delegate?.authManger.getUserInfoWithToken()
                 self.delegate?.UserDoneLogedin()
             }
