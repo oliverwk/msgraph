@@ -106,8 +106,12 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self.delegate?.authManger.accessToken = result.accessToken
                 self.delegate?.authManger.currentAccount = result.account
-                self.delegate?.authManger.ErrorMsg = "Signed in an account \(result.account.username ?? "No user name")."
+                self.delegate?.authManger.ErrorMsg = "Signed in an account \(result.account.username ?? "No username")."
                 self.delegate?.authManger.getUserInfoWithToken()
+                if let calendarTokenCallback = self.delegate?.authManger.CalendarTokenCallback {
+                    print("calling CalendarTokenCallback")
+                    calendarTokenCallback(Date().addingTimeInterval(604800))
+                }
                 self.delegate?.UserDoneLogedin()
             }
         }

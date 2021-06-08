@@ -19,7 +19,7 @@ struct CalendarView: View {
     var body: some View {
         NavigationView {
             List(calendarFetcher.CalendarEvents) { event in
-                NavigationLink(destination: Text(verbatim: event.description)) {
+                NavigationLink(destination: CalendarDetailView(event: event)) {
                     HStack {
                         Text(verbatim: event.name)
                         Text(verbatim: event.location)

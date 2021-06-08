@@ -78,8 +78,10 @@ public class CalendarFetcher: ObservableObject {
                         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss"
                         // self.CalendarEvents = teamsEvents
-                        for event in teamsEvents {
-                            self.CalendarEvents.append(Event(name: event.subject, description: event.bodyPreview, start: dateFormatter.date(from: event.start.dateTime)!, location: event.location.displayName ?? "Geen Location"))
+                        DispatchQueue.main.async {
+                            for event in teamsEvents {
+                                self.CalendarEvents.append(Event(name: event.subject, description: event.bodyPreview, start: dateFormatter.date(from: event.start.dateTime)!, location: event.location.displayName ?? "Geen Location"))
+                            }
                         }
                     } catch {
                         print("Response:", response ?? "no response")
