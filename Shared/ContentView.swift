@@ -17,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 10) {
-                Spacer()
+//                Spacer()
                 List(launchData.missions) { site in
                     NavigationLink(destination: Text(site)) {
                         Text(site)

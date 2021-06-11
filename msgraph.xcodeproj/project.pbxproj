@@ -119,12 +119,12 @@
 				E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */,
 				E6CECDCD265D20F600CA87F8 /* ContentView.swift.old */,
 				E606E36B2666BE4A00A7970A /* ContentView.swift */,
-				E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */,
 				E6145F37265FFDC9009296EE /* DataFetcher.swift */,
 				E6145F31265FF7E0009296EE /* Network.swift */,
 				E6145F34265FFBC1009296EE /* API.swift */,
 				E6145F27265FF258009296EE /* EventView.swift */,
 				E6145F24265FF216009296EE /* calender.swift */,
+				E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */,
 				E6CECDCE265D210D00CA87F8 /* Assets.xcassets */,
 			);
 			path = Shared;
