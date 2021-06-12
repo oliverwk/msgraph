@@ -6,25 +6,29 @@
 //
 
 import SwiftUI
-
-extension String: Identifiable {
-    public var id: String { self }
-}
+import CoreSpotlight
 
 struct ContentView: View {
     @ObservedObject private var launchData: LaunchListData = LaunchListData()
+    @SceneStorage("ContentView.selectedLaunch") private var selectedLaunch: String?
     
     var body: some View {
         NavigationView {
             VStack(spacing: 10) {
-//                Spacer()
-                List(launchData.missions) { site in
-                    NavigationLink(destination: Text(site)) {
-                        Text(site)
+                List {
+                    ForEach((0..<(launchData.launches?.count ?? 0)), id: \.self) { i in
+                        NavigationLink(destination: EventView(event: (launchData.launches?[i]), selectedLaunchID: $selectedLaunch), tag: ((launchData.launches?[i]?.id ?? UUID().uuidString) as String), selection: $selectedLaunch) {
+                            Text(launchData.launches?[i]?.missionName ?? "Geen missionName")
+                        }
+                    }
+                }
+                .navigationTitle("SpaceX API")
+                .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
+                    if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                        self.selectedLaunch = id
                     }
                 }
             }
-            .navigationTitle("SpaceX API")
         }
     }
 }
@@ -32,33 +36,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-class LaunchListData: ObservableObject {
-    @Published var missions: [String]
-    
-    init() {
-        print("running loadData")
-        self.missions  = [String]()
-        loadData()
-    }
-    
-    func loadData() {
-        Network.shared.apollo.fetch(query: LaunchListQuery()) { result in
-            switch result {
-            case .success(let graphQLResult):
-                print(graphQLResult.data?.launchesPast! as Any)
-                for launch in graphQLResult.data?.launchesPast ?? [] {
-                    if launch != nil {
-                        self.missions.append(launch?.missionName ?? "No Name")
-                    }
-                }
-                
-                print("Success! Result: \(String(describing: self.missions))")
-            case .failure(let error):
-                print("Failure! Error: \(error)")
-            }
-        }
     }
 }

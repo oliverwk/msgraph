@@ -1,21 +1,19 @@
 query LaunchList {
   launchesPast(limit: 15) {
     mission_name
+    id
+    details
     launch_date_local
     launch_site {
       site_name_long
     }
     links {
       video_link
+      flickr_images
     }
     rocket {
       rocket_name
-      second_stage {
-        payloads {
-          payload_type
-          payload_mass_kg
-        }
-      }
     }
   }
 }
+
