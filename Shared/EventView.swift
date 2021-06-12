@@ -13,6 +13,10 @@ struct EventView: View {
     
     var body: some View {
         VStack {
+            if !(event?.links?.flickrImages?.isEmpty ?? true) {
+                RemoteImage(url: event?.links?.flickrImages?[0] ?? "https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg")
+                    .cornerRadius(5)
+            }
             HStack {
                 Text(event?.missionName ?? "Geen missionName")
                     .padding()
