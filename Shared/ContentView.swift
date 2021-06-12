@@ -22,12 +22,11 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle("SpaceX API")
-                .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
-                    if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
-                        self.selectedLaunch = id
-                    }
-                }
+            }
+        }.navigationTitle("SpaceX API")
+        .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
+            if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
+                self.selectedLaunch = id
             }
         }
     }

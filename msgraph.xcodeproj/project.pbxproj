@@ -19,10 +19,10 @@
 		E6145F30265FF67C009296EE /* LaunchList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2E265FF67C009296EE /* LaunchList.graphql */; };
 		E6145F32265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
 		E6145F33265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
-		E6145F35265FFBC1009296EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F34265FFBC1009296EE /* API.swift */; };
-		E6145F36265FFBC1009296EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F34265FFBC1009296EE /* API.swift */; };
 		E69A63D126753EB9002C869B /* LaunchListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D026753EB9002C869B /* LaunchListData.swift */; };
 		E69A63D226753EB9002C869B /* LaunchListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D026753EB9002C869B /* LaunchListData.swift */; };
+		E69A63D726754013002C869B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D626754013002C869B /* API.swift */; };
+		E69A63D826754013002C869B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D626754013002C869B /* API.swift */; };
 		E6CD42922666C98E002CB0F1 /* VersionSettingBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */; };
 		E6CD42932666C98E002CB0F1 /* VersionSettingBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */; };
 		E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */; };
@@ -42,8 +42,8 @@
 		E6145F2B265FF5A7009296EE /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		E6145F2E265FF67C009296EE /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		E6145F31265FF7E0009296EE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		E6145F34265FFBC1009296EE /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		E69A63D026753EB9002C869B /* LaunchListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListData.swift; sourceTree = "<group>"; };
+		E69A63D626754013002C869B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VersionSettingBundle.bundle; sourceTree = "<group>"; };
 		E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = msgraphApp.swift; sourceTree = "<group>"; };
 		E6CECDCE265D210D00CA87F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,12 +112,12 @@
 		E6CECDCB265D20F600CA87F8 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E69A63D626754013002C869B /* API.swift */,
 				E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */,
 				E606E36B2666BE4A00A7970A /* ContentView.swift */,
 				E69A63D026753EB9002C869B /* LaunchListData.swift */,
 				E6145F27265FF258009296EE /* EventView.swift */,
 				E6145F31265FF7E0009296EE /* Network.swift */,
-				E6145F34265FFBC1009296EE /* API.swift */,
 				E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */,
 				E6CECDCE265D210D00CA87F8 /* Assets.xcassets */,
 			);
@@ -342,8 +342,8 @@
 				E6145F32265FF7E0009296EE /* Network.swift in Sources */,
 				E606E36C2666BE4A00A7970A /* ContentView.swift in Sources */,
 				E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */,
-				E6145F35265FFBC1009296EE /* API.swift in Sources */,
 				E6145F28265FF258009296EE /* EventView.swift in Sources */,
+				E69A63D726754013002C869B /* API.swift in Sources */,
 				E69A63D126753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +355,8 @@
 				E6145F33265FF7E0009296EE /* Network.swift in Sources */,
 				E606E36D2666BE4A00A7970A /* ContentView.swift in Sources */,
 				E6CECDE0265D210D00CA87F8 /* msgraphApp.swift in Sources */,
-				E6145F36265FFBC1009296EE /* API.swift in Sources */,
 				E6145F29265FF258009296EE /* EventView.swift in Sources */,
+				E69A63D826754013002C869B /* API.swift in Sources */,
 				E69A63D226753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
