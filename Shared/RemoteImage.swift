@@ -50,9 +50,10 @@ struct RemoteImage: View {
     var body: some View {
         selectImage()
             .resizable()
+// IOS 15           .symbolRendingMode(.mulitcolor)
     }
     
-    init(url: String, loading: Image = Image("01j"), failure: Image = Image(systemName: "multiply.circle")) {
+    init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill")) {
         _loader = StateObject(wrappedValue: Loader(url: url))
         self.loading = loading
         self.failure = failure

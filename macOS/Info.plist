@@ -22,5 +22,9 @@
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>nl.wittopkoning.msgraph.view-launch</string>
+	</array>
 </dict>
 </plist>
