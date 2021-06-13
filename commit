@@ -1,5 +1,5 @@
 git add .
-git commit -m "Added GraphQL"
+git commit -m "Added ShortCuts"
 git branch -M main
 git remote add origin https://github.com/oliverwk/msgraph.git
 git push -u origin main

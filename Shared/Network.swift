@@ -6,8 +6,9 @@
 //
 // SpaceX api https://api.spacex.land/graphql
 
-import CoreData
+
 import Apollo
+
 class Network {
   static let shared = Network()
     

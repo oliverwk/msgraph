@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0386F8C1-E9A8-4A86-9D26-A90F6B920D13"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A47F5F66-FACF-4946-BD9D-136938761E1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Shared/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "A47F5F66-FACF-4946-BD9D-136938761E1D - 24441aad29e59469"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.NSUserActivity) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onContinueUserActivity(_: Swift.String, perform: (__C.NSUserActivity) -&gt; ()) -&gt; some&gt;&gt;.0 in msgraph.ContentView.body.getter : some"
+                  moduleName = "msgraph"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mwk/Desktop/msgraph/Shared/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "524">
+               </Location>
+               <Location
+                  uuid = "A47F5F66-FACF-4946-BD9D-136938761E1D - 24441aad29e59469"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.NSUserActivity) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onContinueUserActivity(_: Swift.String, perform: (__C.NSUserActivity) -&gt; ()) -&gt; some&gt;&gt;.0 in msgraph.ContentView.body.getter : some"
+                  moduleName = "msgraph"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mwk/Desktop/msgraph/Shared/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "692">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -22,6 +22,7 @@
 	<true/>
 	<key>NSUserActivityTypes</key>
 	<array>
+		<string>ViewLaunchesIntent</string>
 		<string>nl.wittopkoning.msgraph.view-launch</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

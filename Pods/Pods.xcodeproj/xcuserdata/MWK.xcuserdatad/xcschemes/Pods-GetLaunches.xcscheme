@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C7067ACEDD54425D044EE482E44AC638"
-               BuildableName = "Pods_msgraph__macOS_.framework"
-               BlueprintName = "Pods-msgraph (macOS)"
+               BlueprintIdentifier = "D14E96566412193271AD4536172D92E2"
+               BuildableName = "Pods_GetLaunches.framework"
+               BlueprintName = "Pods-GetLaunches"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

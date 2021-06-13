@@ -1,0 +1,6 @@
+framework module Pods_GetLaunches {
+  umbrella header "Pods-GetLaunches-umbrella.h"
+
+  export *
+  module * { export * }
+}
