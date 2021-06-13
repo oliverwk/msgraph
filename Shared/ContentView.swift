@@ -17,6 +17,7 @@ struct ContentView: View {
     )
     @ObservedObject private var launchData: LaunchListData = LaunchListData()
     @SceneStorage("ContentView.selectedLaunch") var selectedLaunch: String?
+    @State var textHidden = ""
     
     var body: some View {
         NavigationView {
@@ -28,11 +29,15 @@ struct ContentView: View {
                         }
                     }
                 }
+                Text(textHidden).hidden()
             }.navigationTitle("SpaceX API")
             .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
                 if let id = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String {
                     DispatchQueue.main.async {
                         self.selectedLaunch = id
+                        // Dit is zodat de view moet reloaden en dan dus de nieuwe data binnen krijg
+                        self.textHidden = " "
+                        
                     }
                 }
             }

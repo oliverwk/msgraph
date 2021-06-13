@@ -24,13 +24,14 @@ class LaunchListData: ObservableObject {
             switch result {
             case .success(let graphQLResult):
                 self.launches = graphQLResult.data?.launchesPast ?? []
-                for launch in graphQLResult.data?.launchesPast ?? [] {
-                    if launch != nil {
-                        self.missions.append(launch?.missionName ?? "No Name")
-                        //print(launch?.jsonObject as Any)
-                    }
-                }
                 self.index()
+//                for launch in graphQLResult.data?.launchesPast ?? [] {
+//                    if launch != nil {
+//                        self.missions.append(launch?.missionName ?? "No Name")
+//                        //print(launch?.jsonObject as Any)
+//                    }
+//                }
+               
                 print("Success! Result: \(String(describing: self.missions))")
             case .failure(let error):
                 print("Failure! Error: \(error)")
