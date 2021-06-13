@@ -37,8 +37,9 @@ struct ContentView: View {
                 }
             }
             .onContinueUserActivity(userActivityType) { userActivity in
-                let id = userActivity.persistentIdentifier
-                logger.log("Received a payload via handoff: \(userActivity.debugDescription) With id: \(String(describing: id), privacy: .public)")
+                let id = String(describing:(userActivity.userInfo?["msgraph.launch.id"] as! Array<Any>)[0])
+                
+                logger.log("Received a payload via handoff id: \(id, privacy: .public)")
                 DispatchQueue.main.async {
                     self.selectedLaunch = id
                 }

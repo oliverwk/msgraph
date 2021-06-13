@@ -52,10 +52,14 @@ struct EventView: View {
             activity.isEligibleForSearch = false
             activity.persistentIdentifier = theId
             activity.referrerURL = URL(string: Launch?.links?.videoLink ?? "about:blank")
-            activity.requiredUserInfoKeys = [theId]
+            activity.userInfo = ["msgraph.launch.id": [theId]]
+            activity.keywords = [theId, Launch?.missionName ?? "spacex"]
+            activity.setValue(theId, forKey: "persistentIdentifier")
+            activity.targetContentIdentifier = theId
             activity.title = NSLocalizedString("View launch \(Launch?.missionName ?? "")", comment: "View Launch activity")
-            logger.log("Adding useractivity with id: \(theId, privacy: .public) on launch \(Launch?.missionName ?? "Geen mission Naam", privacy: .public)")
-//            activity.becomeCurrent()
+            logger.notice("Adding useractivity with id: \(theId, privacy: .public) on launch \(Launch?.missionName ?? "Geen mission Naam", privacy: .public)")
+            activity.needsSave = true
+            activity.becomeCurrent()
         })
     }
 }
