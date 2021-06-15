@@ -31,16 +31,7 @@ struct LaunchRowView: View {
                 } else*/ if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
                     LaunchImage(selectedImage: $selectedImage, launch: Launch)
                 }
-                HStack {
-                    Text(Launch?.missionName ?? "Geen missionName")
-                        .padding()
-                    Text(Launch?.launchSite?.siteNameLong ?? "Geen launchSite")
-                        .padding()
-                }
-                Text(Launch?.rocket?.rocketName ?? "Geen rocketName")
-                    .padding()
-                Text(Launch?.launchDateLocal ?? "Geen launchDate")
-                    .padding()
+                LaunchRowText(Launch: Launch)
             }
         }.userActivity(useractivity) { activity in
             let theId = ((self.Launch?.id ?? "0") as String)

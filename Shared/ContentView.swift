@@ -47,7 +47,24 @@ struct ContentView: View {
                     self.selectedLaunch = id
                 }
             }
+            .onOpenURL(perform: { url in
+                if url.scheme == "spacex" {
+                    print("De url: \(url.absoluteString) with id: \(String(describing: url.valueOf("id")))")
+                    DispatchQueue.main.async {
+                        self.selectedLaunch = url.valueOf("id") ?? "109"
+                    }
+                } else {
+                    print("De url: \(url.absoluteString) en was niet spacex://")
+                }
+            })
         }
+    }
+}
+
+extension URL {
+    func valueOf(_ queryParamaterName: String) -> String? {
+        guard let url = URLComponents(string: self.absoluteString) else { return nil }
+        return url.queryItems?.first(where: { $0.name == queryParamaterName })?.value
     }
 }
 

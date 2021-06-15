@@ -20,7 +20,7 @@ struct LaunchImages: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<iterations, id: \.self) { i in
-                NavigationLink(destination:  RemoteImage(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
+                NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
                 RemoteImage(url: launch?.links?.flickrImages?[i] ?? "about:blank")
                     .cornerRadius(20)
                 }

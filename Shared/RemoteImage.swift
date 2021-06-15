@@ -70,11 +70,9 @@ struct RemoteImage: View {
     var IsWiget: Bool
     
     var body: some View {
-        ScrollView {
             selectImage()
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-        }
     }
     
     init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill"), widget: Bool = false) {

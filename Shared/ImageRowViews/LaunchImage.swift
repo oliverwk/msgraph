@@ -12,7 +12,7 @@ struct LaunchImage: View {
     let launch: LaunchListQuery.Data.LaunchesPast?
     
     var body: some View {
-        NavigationLink(destination:  RemoteImage(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
+        NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
         RemoteImage(url: launch?.links?.flickrImages?[0] ?? "about:blank")
             .cornerRadius(20)
             .padding(15)

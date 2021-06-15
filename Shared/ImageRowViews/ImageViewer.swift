@@ -1,0 +1,29 @@
+//
+//  ImageViewer.swift
+//  msgraph
+//
+//  Created by Olivier Wittop Koning on 15/06/2021.
+//
+
+import SwiftUI
+
+struct ImageViewer: View {
+    @State var scale: CGFloat = 1.0
+    let url: String
+    
+    var body: some View {
+        RemoteImage(url: url)
+        .scaleEffect(scale)
+        .gesture(MagnificationGesture()
+            .onChanged { value in
+                self.scale = value.magnitude
+            }
+        )
+    }
+}
+
+struct ImageViewer_Previews: PreviewProvider {
+    static var previews: some View {
+        ImageViewer(url: "")
+    }
+}

@@ -101,10 +101,10 @@ struct LaunchWidgetEntryView : View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
         .background(
-            
             RemoteImage(url: (entry.Launch?.links?.flickrImages?.count ?? 0) > 0 ? entry.Launch?.links?.flickrImages?[0] ?? "" : "" , loading: Image("Falcon9"), failure: Image(systemName: "wifi.slash"), widget: true)
                 .scaledToFill()
         )
+        .widgetURL(URL(string: "spacex://launch?id=\((entry.Launch?.id ?? "109") as String)"))
     }
 }
 
