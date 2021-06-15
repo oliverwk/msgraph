@@ -63,7 +63,7 @@ class LaunchListData: ObservableObject {
                     }
                 }
             } else {
-                print("\(launch?.id ?? "No ID") is already indexed")
+                print("\(launch?.id ?? "Geen id") is already indexed, \(launch?.missionName ?? "geen missie naam")")
             }
         }
         print("idsToUserDefaults:",  UserDefaults.standard.object(forKey: "IdsIndexInSpotlight") as? [String] ?? [String]())
