@@ -10,12 +10,12 @@ import MobileCoreServices
 import Combine
 
 class LaunchListData: ObservableObject {
-    @Published var missions: [String]
+    //@Published var missions: [String]
     @Published var launches: [LaunchListQuery.Data.LaunchesPast?]?
     
     init() {
         print("running loadData")
-        self.missions  = [String]()
+        //self.missions  = [String]()
         loadData()
     }
     
@@ -32,7 +32,7 @@ class LaunchListData: ObservableObject {
 //                    }
 //                }
                
-                print("Success! Result: \(String(describing: self.missions))")
+                print("Success! Result: \(String(describing: self.launches?[0]))")
             case .failure(let error):
                 print("Failure! Error: \(error)")
             }
