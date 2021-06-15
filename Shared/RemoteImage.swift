@@ -6,10 +6,29 @@
 //
 
 import SwiftUI
+import ImageIO
+
 
 struct RemoteImage: View {
     private enum LoadState {
         case loading, success, failure
+    }
+    
+    func resizedImage(size: CGSize) -> UIImage? {
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageIfAbsent: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceThumbnailMaxPixelSize: max(size.width, size.height)
+        ]
+        
+        guard let imageSource = CGImageSourceCreateWithData(loader.data as CFData, nil),
+              let image = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary)
+        else {
+            return nil
+        }
+        
+        return UIImage(cgImage: image)
     }
     
     private class Loader: ObservableObject {
@@ -46,17 +65,20 @@ struct RemoteImage: View {
     @StateObject private var loader: Loader
     var loading: Image
     var failure: Image
+    var IsWiget: Bool
     
     var body: some View {
         selectImage()
             .resizable()
             .aspectRatio(contentMode: .fit)
+//        .padding(5)
     }
     
-    init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill")) {
+    init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill"), widget: Bool = false) {
         _loader = StateObject(wrappedValue: Loader(url: url))
         self.loading = loading
         self.failure = failure
+        self.IsWiget = widget
     }
     
     private func selectImage() -> Image {
@@ -66,10 +88,18 @@ struct RemoteImage: View {
         case .failure:
             return failure
         default:
-            if let image = UIImage(data: loader.data) {
-                return Image(uiImage: image)
+            if self.IsWiget {
+                if let img = resizedImage(size: CGSize(width: 10, height: 10)) {
+                    return Image(uiImage: img)
+                } else {
+                    return failure
+                }
             } else {
-                return failure
+                if let img = UIImage(data: loader.data) {
+                    return Image(uiImage: img)
+                } else {
+                    return failure
+                }
             }
         }
     }

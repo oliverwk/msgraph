@@ -28,19 +28,19 @@ struct EventView: View {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(0..<(Launch?.links?.flickrImages?.count ?? 4), id: \.self) { i in
                             RemoteImage(url: Launch?.links?.flickrImages?[i] ?? "about:blank")
-                                .cornerRadius(5)
+                                .cornerRadius(20)
                         }
                     }.padding(.horizontal, 10)
                 } else if ((Launch?.links?.flickrImages?.count ?? 0) >= 4) {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(0..<4, id: \.self) { i in
                             RemoteImage(url: Launch?.links?.flickrImages?[i] ?? "about:blank")
-                                .cornerRadius(5)
+                                .cornerRadius(20)
                         }
                     }.padding(.horizontal, 10)
                 } else if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
                     RemoteImage(url: Launch?.links?.flickrImages?[0] ?? "about:blank")
-                        .cornerRadius(5)
+                        .cornerRadius(20)
                         .padding(15)
                 }
                 HStack {
@@ -83,13 +83,13 @@ struct EventView_Previews: PreviewProvider {
             .previewDisplayName("4 Photos")
             NavigationView {
                 EventView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: ["https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg",    "https://live.staticflickr.com/65535/50631642722_3af8131c6f_o.jpg",         "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg", "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
-                    "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg",
-                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
-                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
+                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg",
+                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
+                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
             .previewDisplayName("8 Photos")
-
+            
         }
     }
 }
