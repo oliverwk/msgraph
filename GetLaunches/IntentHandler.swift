@@ -15,6 +15,7 @@ class IntentHandler: INExtension {
         // you can override this and return the handler you want for that particular intent.
         //        print(ViewLaunches)
         guard intent is ViewLaunchesIntent else {
+            // Dit kan eigelijk niet gebeuren
             fatalError("Unhandled intent type: \(intent)")
         }
         
@@ -50,7 +51,7 @@ public class ViewLaunchesIntentHandler: NSObject, ViewLaunchesIntentHandling {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         formatter.timeStyle = .none
-//        formatter.locale = Locale.current
+        //formatter.locale = Locale.current
         formatter.locale = Locale(identifier: "nl_NL")
 
         let dateTimeString = formatter.string(from: Calendar.current.date(from: launchDate)!)

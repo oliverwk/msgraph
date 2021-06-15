@@ -50,7 +50,7 @@ struct RemoteImage: View {
     var body: some View {
         selectImage()
             .resizable()
-            // iOS 15 .symbolRendingMode(.mulitcolor)
+            .aspectRatio(contentMode: .fit)
     }
     
     init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill")) {

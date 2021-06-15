@@ -15,36 +15,45 @@ struct EventView: View {
     )
     
     var Launch: LaunchListQuery.Data.LaunchesPast?
-    @State var i: Int = 0
     let useractivity = "nl.wittopkoning.msgraph.view-launch"
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     
     var body: some View {
         VStack {
-            if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
-                RemoteImage(url: Launch?.links?.flickrImages?[i] ?? "about:blank")
-                    .cornerRadius(5)
-                    .padding(15)
-                    .onTapGesture {
-                        logger.log("Tapped image")
-                        let imgs = Launch?.links?.flickrImages
-                        self.i += 1
-                        if self.i >= imgs?.count ?? 0 {
-                            self.i = 0
-                        } else if self.i <= -1 {
-                            self.i = imgs?.count ?? 0 - 1
+            ScrollView {
+                if ((Launch?.links?.flickrImages?.count ?? 0) <= 5) {
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(0..<(Launch?.links?.flickrImages?.count ?? 4), id: \.self) { i in
+                            RemoteImage(url: Launch?.links?.flickrImages?[i] ?? "about:blank")
+                                .cornerRadius(5)
                         }
-                    }
-            }
-            HStack {
-                Text(Launch?.missionName ?? "Geen missionName")
+                    }.padding(.horizontal, 10)
+                } else if ((Launch?.links?.flickrImages?.count ?? 0) >= 4) {
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(0..<4, id: \.self) { i in
+                            RemoteImage(url: Launch?.links?.flickrImages?[i] ?? "about:blank")
+                                .cornerRadius(5)
+                        }
+                    }.padding(.horizontal, 10)
+                } else if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
+                    RemoteImage(url: Launch?.links?.flickrImages?[0] ?? "about:blank")
+                        .cornerRadius(5)
+                        .padding(15)
+                }
+                HStack {
+                    Text(Launch?.missionName ?? "Geen missionName")
+                        .padding()
+                    Text(Launch?.launchSite?.siteNameLong ?? "Geen launchSite")
+                        .padding()
+                }
+                Text(Launch?.rocket?.rocketName ?? "Geen rocketName")
                     .padding()
-                Text(Launch?.launchSite?.siteNameLong ?? "Geen launchSite")
+                Text(Launch?.launchDateLocal ?? "Geen launchDate")
                     .padding()
             }
-            Text(Launch?.rocket?.rocketName ?? "Geen rocketName")
-                .padding()
-            Text(Launch?.launchDateLocal ?? "Geen launchDate")
-                .padding()
         }.userActivity(useractivity, { activity in
             let theId = ((Launch?.id ?? "0") as String)
             activity.isEligibleForHandoff = true
@@ -63,8 +72,24 @@ struct EventView: View {
     }
 }
 
+
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        EventView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: []), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
+        Group {
+            NavigationView {
+                EventView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: ["https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg",    "https://live.staticflickr.com/65535/50631642722_3af8131c6f_o.jpg",         "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg", "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
+            .previewDisplayName("4 Photos")
+            NavigationView {
+                EventView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: ["https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg",    "https://live.staticflickr.com/65535/50631642722_3af8131c6f_o.jpg",         "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg", "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
+                    "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg",
+                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
+                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
+            .previewDisplayName("8 Photos")
+
+        }
     }
 }
