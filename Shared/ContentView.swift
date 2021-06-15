@@ -20,12 +20,11 @@ struct ContentView: View {
     @State var selectedLaunch: String?
     
     var body: some View {
-        
         NavigationView {
             VStack(spacing: 10) {
                 List {
                     ForEach((0..<(launchData.launches?.count ?? 0)), id: \.self) { i in
-                        NavigationLink(destination: EventView(Launch: launchData.launches?[i]), tag: ((launchData.launches?[i]?.id ?? "LaunchId") as String), selection: $selectedLaunch) {
+                        NavigationLink(destination: LaunchRowView(Launch: launchData.launches?[i]), tag: ((launchData.launches?[i]?.id ?? "LaunchId") as String), selection: $selectedLaunch) {
                             Text(launchData.launches?[i]?.missionName ?? "Geen missionName")
                         }
                     }
