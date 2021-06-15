@@ -20,10 +20,11 @@
 		E6145F33265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
 		E69A63D126753EB9002C869B /* LaunchListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D026753EB9002C869B /* LaunchListData.swift */; };
 		E69A63D226753EB9002C869B /* LaunchListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D026753EB9002C869B /* LaunchListData.swift */; };
-		E69A63D726754013002C869B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D626754013002C869B /* API.swift */; };
-		E69A63D826754013002C869B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D626754013002C869B /* API.swift */; };
 		E69A63DA267551DE002C869B /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D9267551DE002C869B /* RemoteImage.swift */; };
 		E69A63DB267551DE002C869B /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D9267551DE002C869B /* RemoteImage.swift */; };
+		E6A9F795267893DF0014B795 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9F794267893DF0014B795 /* API.swift */; };
+		E6A9F796267893DF0014B795 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9F794267893DF0014B795 /* API.swift */; };
+		E6A9F797267893DF0014B795 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A9F794267893DF0014B795 /* API.swift */; };
 		E6CD42922666C98E002CB0F1 /* VersionSettingBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */; };
 		E6CD42932666C98E002CB0F1 /* VersionSettingBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */; };
 		E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */; };
@@ -36,7 +37,6 @@
 		E6D7514826764F5500D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; };
 		E6D7514B267653E200D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		E6D7514C267653E200D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
-		E6D7514D2676550D00D09EF5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A63D626754013002C869B /* API.swift */; };
 		E6D7514E2676551000D09EF5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
 		ED94F08E6150A8DDC28B9B07 /* Pods_GetLaunches.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43F49FF5340C1140D73AFA9E /* Pods_GetLaunches.framework */; };
 		F2A733090A66ACC11446382C /* Pods_msgraph__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0F911880A2DC685C216F53 /* Pods_msgraph__macOS_.framework */; };
@@ -82,8 +82,9 @@
 		E6145F2E265FF67C009296EE /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		E6145F31265FF7E0009296EE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		E69A63D026753EB9002C869B /* LaunchListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListData.swift; sourceTree = "<group>"; };
-		E69A63D626754013002C869B /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = SOURCE_ROOT; };
 		E69A63D9267551DE002C869B /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		E6A9F78326788F7C0014B795 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = Library/Frameworks/Messages.framework; sourceTree = DEVELOPER_DIR; };
+		E6A9F794267893DF0014B795 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VersionSettingBundle.bundle; sourceTree = "<group>"; };
 		E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = msgraphApp.swift; sourceTree = "<group>"; };
 		E6CECDCE265D210D00CA87F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 				CF83819CE16572D071D6FD6D /* Pods_msgraph__iOS_.framework */,
 				1A0F911880A2DC685C216F53 /* Pods_msgraph__macOS_.framework */,
 				43F49FF5340C1140D73AFA9E /* Pods_GetLaunches.framework */,
+				E6A9F78326788F7C0014B795 /* Messages.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,12 +173,12 @@
 			isa = PBXGroup;
 			children = (
 				E6CECDCC265D20F600CA87F8 /* msgraphApp.swift */,
+				E6A9F794267893DF0014B795 /* API.swift */,
 				E606E36B2666BE4A00A7970A /* ContentView.swift */,
 				E69A63D026753EB9002C869B /* LaunchListData.swift */,
 				E6145F27265FF258009296EE /* EventView.swift */,
 				E69A63D9267551DE002C869B /* RemoteImage.swift */,
 				E6145F31265FF7E0009296EE /* Network.swift */,
-				E69A63D626754013002C869B /* API.swift */,
 				E6CD42912666C98E002CB0F1 /* VersionSettingBundle.bundle */,
 				E6CECDCE265D210D00CA87F8 /* Assets.xcassets */,
 			);
@@ -485,8 +487,8 @@
 				E69A63DA267551DE002C869B /* RemoteImage.swift in Sources */,
 				E6CECDDF265D210D00CA87F8 /* msgraphApp.swift in Sources */,
 				E6145F28265FF258009296EE /* EventView.swift in Sources */,
-				E69A63D726754013002C869B /* API.swift in Sources */,
 				E6D7514B267653E200D09EF5 /* Intents.intentdefinition in Sources */,
+				E6A9F795267893DF0014B795 /* API.swift in Sources */,
 				E69A63D126753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,8 +502,8 @@
 				E69A63DB267551DE002C869B /* RemoteImage.swift in Sources */,
 				E6CECDE0265D210D00CA87F8 /* msgraphApp.swift in Sources */,
 				E6145F29265FF258009296EE /* EventView.swift in Sources */,
-				E69A63D826754013002C869B /* API.swift in Sources */,
 				E6D7514C267653E200D09EF5 /* Intents.intentdefinition in Sources */,
+				E6A9F796267893DF0014B795 /* API.swift in Sources */,
 				E69A63D226753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,8 +513,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D7514826764F5500D09EF5 /* Intents.intentdefinition in Sources */,
-				E6D7514D2676550D00D09EF5 /* API.swift in Sources */,
 				E6D7514E2676551000D09EF5 /* Network.swift in Sources */,
+				E6A9F797267893DF0014B795 /* API.swift in Sources */,
 				E6D7513E26764F4000D09EF5 /* IntentHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

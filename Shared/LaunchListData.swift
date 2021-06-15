@@ -31,7 +31,7 @@ class LaunchListData: ObservableObject {
 //                        //print(launch?.jsonObject as Any)
 //                    }
 //                }
-               
+                
                 print("Success! Result: \(String(describing: self.launches?[0]))")
             case .failure(let error):
                 print("Failure! Error: \(error)")
