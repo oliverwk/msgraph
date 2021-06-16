@@ -9,9 +9,9 @@ import SwiftUI
 import os
 
 struct LaunchRowView: View {
-
+    
     @State var selectedImage: String? = ""
-
+    
     let logger = Logger(
         subsystem: "nl.wittopkoning.msgraph",
         category: "EventView"
@@ -19,19 +19,21 @@ struct LaunchRowView: View {
     
     var Launch: LaunchListQuery.Data.LaunchesPast?
     let useractivity = "nl.wittopkoning.msgraph.view-launch"
-
+    
     
     var body: some View {
         VStack {
             ScrollView {
-                if ((Launch?.links?.flickrImages?.count ?? 0) <= 5) {
-                    LaunchImages(launch: Launch, iterations: (Launch?.links?.flickrImages?.count ?? 4), selectedImage: $selectedImage)
-                } else /*if ((Launch?.links?.flickrImages?.count ?? 0) >= 4) {
-                    LaunchImages(launch: Launch, iterations: 4)
-                } else*/ if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
-                    LaunchImage(selectedImage: $selectedImage, launch: Launch)
-                }
-                LaunchRowText(Launch: Launch)
+//                NavigationView {
+                    if ((Launch?.links?.flickrImages?.count ?? 0) <= 5) {
+                        LaunchImages(launch: Launch, iterations: (Launch?.links?.flickrImages?.count ?? 4))
+                    } else /*if ((Launch?.links?.flickrImages?.count ?? 0) >= 4) {
+                     LaunchImages(launch: Launch, iterations: 4)
+                     } else*/ if !(Launch?.links?.flickrImages?.isEmpty ?? true) {
+                        LaunchImage(launch: Launch)
+                     }
+                    LaunchRowText(Launch: Launch)
+//                }.navigationViewStyle(StackNavigationViewStyle())
             }
         }.userActivity(useractivity) { activity in
             let theId = ((self.Launch?.id ?? "0") as String)
@@ -62,14 +64,14 @@ struct EventView_Previews: PreviewProvider {
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
             .previewDisplayName("4 Photos")
-            NavigationView {
-                LaunchRowView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: ["https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg",    "https://live.staticflickr.com/65535/50631642722_3af8131c6f_o.jpg",         "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg", "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
-                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg",
-                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
-                                                                                                                                                                                                                                                                                                                                                                                                                             "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
+/*            NavigationView {
+                LaunchRowView(Launch: LaunchListQuery.Data.LaunchesPast(missionName: "Starlink-15 (v1.0)", id: "109", details: "None", launchDateLocal: "2020-10-24T11:31:00-04:00", launchSite: LaunchListQuery.Data.LaunchesPast.LaunchSite(siteNameLong: "Cape Canaveral Air Force Station Space Launch Complex 40"), links: LaunchListQuery.Data.LaunchesPast.Link(videoLink: "https://youtu.be/J442-ti-Dhg", flickrImages: ["https://live.staticflickr.com/65535/50630802488_8cc373728e_o.jpg",    "https://live.staticflickr.com/65535/50631642722_3af8131c6f_o.jpg",        "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg", "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
+                    "https://live.staticflickr.com/65535/50631544171_66bd43eaa9_o.jpg",
+                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg",
+                    "https://live.staticflickr.com/65535/50631543966_e8035d5cca_o.jpg"]), rocket: LaunchListQuery.Data.LaunchesPast.Rocket(rocketName: "Falcon 9")))
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
-            .previewDisplayName("8 Photos")
+            .previewDisplayName("8 Photos")*/
             
         }
     }

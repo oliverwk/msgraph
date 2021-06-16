@@ -10,8 +10,7 @@ import SwiftUI
 struct LaunchImages: View {
     let launch: LaunchListQuery.Data.LaunchesPast?
     let iterations: Int
-    @Binding var selectedImage: String?
-    
+
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -20,7 +19,7 @@ struct LaunchImages: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(0..<iterations, id: \.self) { i in
-                NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
+                NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[i] ?? "about:blank")) {
                 RemoteImage(url: launch?.links?.flickrImages?[i] ?? "about:blank")
                     .cornerRadius(20)
                 }
@@ -31,6 +30,6 @@ struct LaunchImages: View {
 
 struct LaunchImages_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchImages(launch: PlaceholderLaunch, iterations: 4, selectedImage: .constant(""))
+        LaunchImages(launch: PlaceholderLaunch, iterations: 4)
     }
 }

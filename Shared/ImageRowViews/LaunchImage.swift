@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct LaunchImage: View {
-    @Binding var selectedImage: String?
     let launch: LaunchListQuery.Data.LaunchesPast?
     
     var body: some View {
-        NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[0] ?? "about:blank"), tag: ((launch?.links?.flickrImages?[0] ?? "LaunchId") as String), selection: $selectedImage) {
+        NavigationLink(destination: ImageViewer(url: launch?.links?.flickrImages?[0] ?? "about:blank")) {
         RemoteImage(url: launch?.links?.flickrImages?[0] ?? "about:blank")
             .cornerRadius(20)
             .padding(.horizontal, 15)
@@ -22,6 +21,6 @@ struct LaunchImage: View {
 
 struct LaunchImage_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchImage(selectedImage: .constant(""), launch: PlaceholderLaunch)
+        LaunchImage(launch: PlaceholderLaunch)
     }
 }
