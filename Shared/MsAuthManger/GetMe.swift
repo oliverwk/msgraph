@@ -21,7 +21,8 @@ extension MsAuthManger {
                 var output = ""
                 if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 403 {
-                        output = "Access token isn't right please login again"
+                        output =  "Acces token isn't right, please login"
+                        self.signOut()
                         // Hier Dan get token callen
                     } else {
                         output = "Couldn't get graph result: \(error)"
