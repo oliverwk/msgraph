@@ -18,8 +18,8 @@ struct RemoteImage: View {
         var data = Data()
         var state = LoadState.loading
         
-        init(url: String, isPreview: Bool = false) {
-            if isPreview || url == "blank" {
+        init(url: String) {
+            if url == "blank" {
                 self.state = .loading
                 DispatchQueue.main.async {
                     self.objectWillChange.send()
@@ -67,8 +67,8 @@ struct RemoteImage: View {
             .aspectRatio(contentMode: .fit)
     }
     
-    init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill"), isPreview: Bool = false) {
-        _loader = StateObject(wrappedValue: Loader(url: url, isPreview: isPreview))
+    init(url: String, loading: Image = Image(systemName: "photo.fill"), failure: Image = Image(systemName: "xmark.octagon.fill")) {
+        _loader = StateObject(wrappedValue: Loader(url: url))
         self.loading = loading
         self.failure = failure
     }

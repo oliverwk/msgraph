@@ -47,7 +47,6 @@ struct Provider: TimelineProvider {
     
     func getSnapshot(in context: Context, completion: @escaping (LaunchEntry) -> ()) {
         let entry = LaunchEntry(date: Date(), Launch: placeHolderLaunch, isPreview: true)
-        
         completion(entry)
     }
     
@@ -64,16 +63,6 @@ struct Provider: TimelineProvider {
             let timeline = Timeline(entries: entries, policy: .atEnd)
             completion(timeline)
         }
-        /*// Generate a timeline consisting of five entries an hour apart, starting from the current date.
-         let currentDate = Date()
-         for hourOffset in 0 ..< 5 {
-         let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-         let entry = LaunchEntry(date: entryDate, Launch: placeHolderLaunch)
-         entries.append(entry)
-         }
-         
-         let timeline = Timeline(entries: entries, policy: .atEnd)
-         completion(timeline)*/
     }
 }
 
@@ -107,7 +96,7 @@ struct LaunchWidgetEntryView : View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .edgesIgnoringSafeArea(.all)
         .background(
-            RemoteImage(url: (entry.Launch.links?.flickrImages?.count ?? 0) > 0 ? entry.Launch.links?.flickrImages?[0] ?? "blank" : " " , loading: Image("Falcon9"), failure: Image(systemName: "wifi.slash"), isPreview: isPreview).scaledToFill()
+            RemoteImage(url: (entry.Launch.links?.flickrImages?.count ?? 0) > 0 ? entry.Launch.links?.flickrImages?[0] ?? "blank" : " " , loading: Image("Falcon9"), failure: Image(systemName: "wifi.slash")).scaledToFill()
         )
         .widgetURL(URL(string: "spacex://launch?id=\((entry.Launch.id ?? "109") as String)"))
     }
