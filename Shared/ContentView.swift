@@ -48,10 +48,10 @@ struct ContentView: View {
                 }
             }
             .onOpenURL(perform: { url in
-                if url.scheme == "spacex" {
+                if url.scheme?.lowercased() == "spacex" {
                     print("De url: \(url.absoluteString) with id: \(String(describing: url.valueOf("id")))")
                     DispatchQueue.main.async {
-                        self.selectedLaunch = url.valueOf("id") ?? "109"
+                        self.selectedLaunch = url.valueOf("id") ?? ""
                     }
                 } else {
                     print("De url: \(url.absoluteString) en was niet spacex://")
