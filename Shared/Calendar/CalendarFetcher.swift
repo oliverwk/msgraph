@@ -52,7 +52,8 @@ public class CalendarFetcher: ObservableObject {
                     var output = ""
                     if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 403 {
-                            output = "Acces token isn't right"
+                            output = "Acces token isn't right please login again"
+                            self.authManger.signOut()
                             // Hier Dan get token callen
                         } else {
                             output = "Couldn't get graph result: \(error)"
