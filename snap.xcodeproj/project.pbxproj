@@ -134,8 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */,
-				E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */,
 				E616F5AB267A65F1006983A1 /* Me.swift */,
+				E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */,
 			);
 			path = structs;
 			sourceTree = "<group>";

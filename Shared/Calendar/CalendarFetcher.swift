@@ -25,7 +25,7 @@ public class CalendarFetcher: ObservableObject {
         if self.authManger.accessToken != "" {
             GetCalendar(volgendeweek)
         } else {
-            print("AccessToken isn't there")
+            print("AccessToken isn't there yet")
         }
         
     }
@@ -71,13 +71,21 @@ public class CalendarFetcher: ObservableObject {
                             print("Result from Graph: \(teamsEvents.debugDescription)")
                             DispatchQueue.main.async { self.CalendarEvents = teamsEvents }
                         } catch {
-                            print("Response:", response ?? "no response")
-                            print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)) \n\nen met error: \(error)")
-                            DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
+                            do {
+                                let GraphError = try JSONDecoder().decode(ErrorDataGraph.self, from: d)
+                                print("Er was een error met de graph: \(GraphError.error.message) met de code: \(GraphError.error.code)")
+                                DispatchQueue.main.async { self.authManger.ErrorMsg = "Er was een error met de graph: \(GraphError.error.message)" }
+                            } catch {
+                                print("Response:", response ?? "no response")
+                                print("Couldn't deserialize result JSON with data: \(String(decoding: d, as: UTF8.self))\n\nen error: \(error)")
+                                DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
+                            }
                         }
+                    } else {
+                        print("Er was geen data bij het reqeust naar /calender met error: \(error.debugDescription)")
+                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Er was geen data bij het reqeust naar /calender met error: \(error?.localizedDescription ?? "Er was geen error 🤨")" }
                     }
                 }
-                
             }.resume()
         }
     }
