@@ -42,11 +42,11 @@ struct Provider: TimelineProvider {
     }
     
     func placeholder(in context: Context) -> LaunchEntry {
-        return LaunchEntry(date: Date(), Launch: placeHolderLaunch, isPreview: true)
+        return LaunchEntry(date: Date(), Launch: placeHolderLaunch)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (LaunchEntry) -> ()) {
-        let entry = LaunchEntry(date: Date(), Launch: placeHolderLaunch, isPreview: true)
+        let entry = LaunchEntry(date: Date(), Launch: placeHolderLaunch)
         completion(entry)
     }
     
@@ -57,7 +57,7 @@ struct Provider: TimelineProvider {
             logger.info("[LOG] Got the Data: \(launch.jsonObject.debugDescription, privacy: .public)")
             var entry: LaunchEntry
             let entryDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-            entry = LaunchEntry(date: entryDate, Launch: launch, isPreview: false)
+            entry = LaunchEntry(date: entryDate, Launch: launch)
             
             entries.append(entry)
             let timeline = Timeline(entries: entries, policy: .atEnd)
@@ -71,12 +71,10 @@ struct Provider: TimelineProvider {
 struct LaunchEntry: TimelineEntry {
     let date: Date
     let Launch: LaunchType
-    let isPreview: Bool
 }
 
 struct LaunchWidgetEntryView : View {
     var entry: Provider.Entry
-    let isPreview: Bool
     
     var body: some View {
         VStack(alignment: .center) {
@@ -108,7 +106,7 @@ struct LaunchWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            LaunchWidgetEntryView(entry: entry, isPreview: false)
+            LaunchWidgetEntryView(entry: entry)
         }
         .supportedFamilies([.systemSmall, .systemMedium])
         .configurationDisplayName("SpaceX Launch Widget")
@@ -118,10 +116,10 @@ struct LaunchWidget: Widget {
 
 struct LaunchWidget_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchWidgetEntryView(entry: LaunchEntry(date: Date(), Launch: placeHolderLaunch, isPreview: false), isPreview: false)
+        LaunchWidgetEntryView(entry: LaunchEntry(date: Date(), Launch: placeHolderLaunch))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
             .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
-        LaunchWidgetEntryView(entry: LaunchEntry(date: Date(), Launch: placeHolderLaunch, isPreview: false), isPreview: false)
+        LaunchWidgetEntryView(entry: LaunchEntry(date: Date(), Launch: placeHolderLaunch))
             .previewContext(WidgetPreviewContext(family: .systemMedium))
             .previewDevice(PreviewDevice(rawValue: "iPhone 7"))
     }
