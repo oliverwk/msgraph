@@ -2,7 +2,7 @@
 //  CalendarDetailView.swift
 //  snap
 //
-//  Created by Maarten Wittop Koning on 08/06/2021.
+//  Created by Olivier Wittop Koning on 08/06/2021.
 //
 
 import SwiftUI

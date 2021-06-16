@@ -47,7 +47,6 @@ public class CalendarFetcher: ObservableObject {
             //let url = URL(string: "https://graph.microsoft.com/v1.0/me/calendarview?startdatetime=2021-06-07T15:26:05Z&enddatetime=2021-06-14T15:26:05Z")
             var request = URLRequest(url: theUrl)
             
-            // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
             request.setValue("Bearer \(self.authManger.accessToken)", forHTTPHeaderField: "Authorization")
             print("Making request to /calender with token: \(self.authManger.accessToken)")
             URLSession.shared.dataTask(with: request) { data, response, error in

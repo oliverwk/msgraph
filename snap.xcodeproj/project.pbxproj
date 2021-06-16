@@ -9,10 +9,23 @@
 /* Begin PBXBuildFile section */
 		68FF02DCC89C59AAB1CF6EEF /* Pods_snap__macOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38DB17873B554156D862864 /* Pods_snap__macOS_.framework */; };
 		B2090C714713DA6F115E4748 /* Pods_snap__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED14048D0D4DFF5A9E76EA /* Pods_snap__iOS_.framework */; };
+		E616F59A267A629E006983A1 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F599267A629E006983A1 /* LogOut.swift */; };
+		E616F59B267A629E006983A1 /* LogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F599267A629E006983A1 /* LogOut.swift */; };
+		E616F59D267A638B006983A1 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
+		E616F5A0267A6423006983A1 /* GetPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F59F267A6423006983A1 /* GetPhoto.swift */; };
+		E616F5A1267A6423006983A1 /* GetPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F59F267A6423006983A1 /* GetPhoto.swift */; };
+		E616F5A3267A647F006983A1 /* GetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A2267A647F006983A1 /* GetMe.swift */; };
+		E616F5A4267A647F006983A1 /* GetMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A2267A647F006983A1 /* GetMe.swift */; };
+		E616F5A6267A64E1006983A1 /* loadCurrentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A5267A64E1006983A1 /* loadCurrentAccount.swift */; };
+		E616F5A7267A64E1006983A1 /* loadCurrentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A5267A64E1006983A1 /* loadCurrentAccount.swift */; };
+		E616F5A9267A652B006983A1 /* GetTokenSilently.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A8267A652B006983A1 /* GetTokenSilently.swift */; };
+		E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A8267A652B006983A1 /* GetTokenSilently.swift */; };
+		E616F5AC267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
+		E616F5AD267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
+		E616F5AF267A67EC006983A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AE267A67EC006983A1 /* Event.swift */; };
+		E616F5B0267A67EC006983A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AE267A67EC006983A1 /* Event.swift */; };
 		E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
-		E65887D22669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
-		E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */; };
 		E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
 		E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
 		E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
@@ -26,14 +39,12 @@
 		E6AF5F1B266BE5C6000DC0B0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */; };
 		E6AF5F1D266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */; };
 		E6AF5F1E266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */; };
-		E6AF5F20266D6761000DC0B0 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1F266D6761000DC0B0 /* Structs.swift */; };
-		E6AF5F21266D6761000DC0B0 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1F266D6761000DC0B0 /* Structs.swift */; };
+		E6AF5F20266D6761000DC0B0 /* TeamsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */; };
+		E6AF5F21266D6761000DC0B0 /* TeamsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */; };
 		E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
 		E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
 		E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
 		E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
-		E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDB44E266967EB00238E97 /* LogOutView.swift */; };
-		E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDB44E266967EB00238E97 /* LogOutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,9 +54,15 @@
 		9F0258C9628E3E2F56178EC4 /* Pods-snap (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-snap (iOS).release.xcconfig"; path = "Target Support Files/Pods-snap (iOS)/Pods-snap (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		A38DB17873B554156D862864 /* Pods_snap__macOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__macOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9ED14048D0D4DFF5A9E76EA /* Pods_snap__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_snap__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E616F599267A629E006983A1 /* LogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOut.swift; sourceTree = "<group>"; };
+		E616F59F267A6423006983A1 /* GetPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoto.swift; sourceTree = "<group>"; };
+		E616F5A2267A647F006983A1 /* GetMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMe.swift; sourceTree = "<group>"; };
+		E616F5A5267A64E1006983A1 /* loadCurrentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCurrentAccount.swift; sourceTree = "<group>"; };
+		E616F5A8267A652B006983A1 /* GetTokenSilently.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenSilently.swift; sourceTree = "<group>"; };
+		E616F5AB267A65F1006983A1 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
+		E616F5AE267A67EC006983A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
-		E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDataGraph.swift; sourceTree = "<group>"; };
 		E6A4F67E25FE483300C1EC9A /* snapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapApp.swift; sourceTree = "<group>"; };
 		E6A4F67F25FE483300C1EC9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,11 +74,10 @@
 		E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModal.swift; sourceTree = "<group>"; };
 		E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFetcher.swift; sourceTree = "<group>"; };
-		E6AF5F1F266D6761000DC0B0 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsEvents.swift; sourceTree = "<group>"; };
 		E6BB021326690FE8007BA005 /* snap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snap.entitlements; sourceTree = "<group>"; };
 		E6BB02172669272C007BA005 /* MsAuthManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsAuthManger.swift; sourceTree = "<group>"; };
 		E6BB021A2669379D007BA005 /* DebugToggle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DebugToggle.bundle; sourceTree = "<group>"; };
-		E6DDB44E266967EB00238E97 /* LogOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogOutView.swift; path = Pods/LogOutView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +120,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E616F59C267A62CA006983A1 /* MsAuthManger */ = {
+			isa = PBXGroup;
+			children = (
+				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
+				E616F5A8267A652B006983A1 /* GetTokenSilently.swift */,
+				E616F5A5267A64E1006983A1 /* loadCurrentAccount.swift */,
+				E616F5A2267A647F006983A1 /* GetMe.swift */,
+				E616F59F267A6423006983A1 /* GetPhoto.swift */,
+				E616F599267A629E006983A1 /* LogOut.swift */,
+			);
+			path = MsAuthManger;
+			sourceTree = "<group>";
+		};
+		E616F59E267A63B8006983A1 /* structs */ = {
+			isa = PBXGroup;
+			children = (
+				E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */,
+				E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */,
+				E616F5AB267A65F1006983A1 /* Me.swift */,
+				E616F5AE267A67EC006983A1 /* Event.swift */,
+			);
+			path = structs;
+			sourceTree = "<group>";
+		};
 		E6172D8125FEA523004ECDF5 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,10 +155,10 @@
 		E6A4F67625FE483100C1EC9A = {
 			isa = PBXGroup;
 			children = (
-				E6BB021A2669379D007BA005 /* DebugToggle.bundle */,
 				E6BB021326690FE8007BA005 /* snap.entitlements */,
-				E6172D8125FEA523004ECDF5 /* iOS */,
 				E6A4F67B25FE483300C1EC9A /* Shared */,
+				E6172D8125FEA523004ECDF5 /* iOS */,
+				E6BB021A2669379D007BA005 /* DebugToggle.bundle */,
 				E6A4F68F25FE484F00C1EC9A /* macOS */,
 				E6A4F68725FE484F00C1EC9A /* Products */,
 				6FF5083C117C5C991CC65743 /* Pods */,
@@ -131,15 +171,12 @@
 			children = (
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
-				E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */,
-				E6AF5F1F266D6761000DC0B0 /* Structs.swift */,
 				E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */,
 				E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */,
-				E6DDB44E266967EB00238E97 /* LogOutView.swift */,
 				E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */,
-				E65887D12669F9BE00816B41 /* LogoutViewControllerRepresentable.swift */,
-				E6BB02172669272C007BA005 /* MsAuthManger.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
+				E616F59E267A63B8006983A1 /* structs */,
+				E616F59C267A62CA006983A1 /* MsAuthManger */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -330,15 +367,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F6B325FE52A100C1EC9A /* LoginModal.swift in Sources */,
-				E65887D22669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */,
 				E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */,
-				E6AF5F20266D6761000DC0B0 /* Structs.swift in Sources */,
+				E6AF5F20266D6761000DC0B0 /* TeamsEvents.swift in Sources */,
 				E6AF5F1A266BE5C6000DC0B0 /* CalendarView.swift in Sources */,
-				E6DDB44F266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6AF5F1D266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
+				E616F5A3267A647F006983A1 /* GetMe.swift in Sources */,
+				E616F5A9267A652B006983A1 /* GetTokenSilently.swift in Sources */,
+				E616F5A6267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
+				E616F5AF267A67EC006983A1 /* Event.swift in Sources */,
+				E616F5AC267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */,
+				E616F59A267A629E006983A1 /* LogOut.swift in Sources */,
 				E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */,
+				E616F5A0267A6423006983A1 /* GetPhoto.swift in Sources */,
 				E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,15 +390,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F6B425FE52A100C1EC9A /* LoginModal.swift in Sources */,
-				E65887D32669F9BE00816B41 /* LogoutViewControllerRepresentable.swift in Sources */,
-				E6AF5F21266D6761000DC0B0 /* Structs.swift in Sources */,
+				E6AF5F21266D6761000DC0B0 /* TeamsEvents.swift in Sources */,
+				E616F59B267A629E006983A1 /* LogOut.swift in Sources */,
 				E6AF5F1B266BE5C6000DC0B0 /* CalendarView.swift in Sources */,
-				E6DDB450266967EB00238E97 /* LogOutView.swift in Sources */,
 				E6AF5F1E266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
+				E616F5A4267A647F006983A1 /* GetMe.swift in Sources */,
+				E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */,
+				E616F5A7267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
+				E616F5B0267A67EC006983A1 /* Event.swift in Sources */,
+				E616F5AD267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */,
 				E6A4F69725FE484F00C1EC9A /* ContentView.swift in Sources */,
 				E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */,
+				E616F5A1267A6423006983A1 /* GetPhoto.swift in Sources */,
+				E616F59D267A638B006983A1 /* ErrorDataGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Structs.swift
+//  TeamsEvents.swift
 //  snap
 //
 //  Created by Olivier Wittop Koning on 06/06/2021.

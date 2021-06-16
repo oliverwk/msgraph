@@ -107,7 +107,7 @@ class LoginViewController: UIViewController {
                 self.delegate?.authManger.accessToken = result.accessToken
                 self.delegate?.authManger.currentAccount = result.account
                 self.delegate?.authManger.ErrorMsg = "Signed in an account \(result.account.username ?? "No username")."
-                self.delegate?.authManger.getUserInfoWithToken()
+                self.delegate?.authManger.GetMe()
                 if let calendarTokenCallback = self.delegate?.authManger.CalendarTokenCallback {
                     print("calling CalendarTokenCallback")
                     calendarTokenCallback(Date().addingTimeInterval(604800))

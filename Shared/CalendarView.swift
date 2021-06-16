@@ -35,10 +35,3 @@ struct CalendarView: View {
 }
 
 
-struct Event: Codable, Identifiable {
-    public var id = UUID()
-    public var name: String
-    public var description: String
-    public var start: Date
-    public var location: String
-}
