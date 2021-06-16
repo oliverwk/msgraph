@@ -11,7 +11,7 @@ import SwiftUI
 
 public class CalendarFetcher: ObservableObject {
     @StateObject private var authManger: MsAuthManger
-    @Published var CalendarEvents = [Event]()
+    @Published var CalendarEvents = [TeamsEvent]()
     
     init(authManger: StateObject<MsAuthManger>) {
         _authManger = authManger
@@ -34,9 +34,7 @@ public class CalendarFetcher: ObservableObject {
         
         let EndDate = Date().addingTimeInterval(604800)
         let today = Date()
-        // Specify the Graph API endpoint
         let utcFormatter = ISO8601DateFormatter()
-        print(utcFormatter.string(from: today))
         
         var urlcomponents = URLComponents(string: "https://graph.microsoft.com")
         urlcomponents?.path = "/v1.0/me/calendarview"
@@ -54,7 +52,7 @@ public class CalendarFetcher: ObservableObject {
                     var output = ""
                     if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 403 {
-                            output = "Acces token isn't good"
+                            output = "Acces token isn't right"
                             // Hier Dan get token callen
                         } else {
                             output = "Couldn't get graph result: \(error)"
@@ -67,25 +65,16 @@ public class CalendarFetcher: ObservableObject {
                     return
                     
                 } else {
-                    var result: Any
-                    do {
-                        result = try JSONSerialization.jsonObject(with: data!, options: [])
-                        print("Result from Graph: \(result)")
-                        // DispatchQueue.main.async { self.authManger.ErrorMsg = "Result from Graph: \(result))" }
-                        let teamsEvents = (try JSONDecoder().decode(TeamsEvents.self, from: data!)).value
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss"
-                        // self.CalendarEvents = teamsEvents
-                        DispatchQueue.main.async {
-                            for event in teamsEvents {
-                                self.CalendarEvents.append(Event(name: event.subject, description: event.bodyPreview, start: dateFormatter.date(from: event.start.dateTime)!, location: event.location.displayName ?? "Geen Location"))
-                            }
+                    if let d = data {
+                        do {
+                            let teamsEvents = (try JSONDecoder().decode(TeamsEvents.self, from: d)).value
+                            print("Result from Graph: \(teamsEvents.debugDescription)")
+                            DispatchQueue.main.async { self.CalendarEvents = teamsEvents }
+                        } catch {
+                            print("Response:", response ?? "no response")
+                            print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)) \n\nen met error: \(error)")
+                            DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
                         }
-                    } catch {
-                        print("Response:", response ?? "no response")
-                        print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)) \n\nen met error: \(error)")
-                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
                     }
                 }
                 

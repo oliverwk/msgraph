@@ -20,7 +20,7 @@ struct TeamsEvents: Codable {
 }
 
 // MARK: - TeamsEvent
-struct TeamsEvent: Codable {
+struct TeamsEvent: Codable, Identifiable {
     let odataEtag, id, createdDateTime, lastModifiedDateTime: String
     let changeKey: String
     let categories: [JSONAny]
@@ -41,7 +41,7 @@ struct TeamsEvent: Codable {
     let onlineMeeting: onlineMeetingStruct?
     let responseStatus: ResponseStatus
     let body: Body
-    let start, end: End
+    let start, end: EndOrStart
     let location: Location
     let locations, attendees: [Location?]
     let organizer: Organizer
@@ -65,8 +65,8 @@ struct Body: Codable {
     let contentType, content: String?
 }
 
-// MARK: - End
-struct End: Codable {
+// MARK: - EndOrStart
+struct EndOrStart: Codable {
     let dateTime, timeZone: String
 }
 struct onlineMeetingStruct: Codable {

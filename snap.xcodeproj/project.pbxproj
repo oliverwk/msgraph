@@ -22,8 +22,6 @@
 		E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A8267A652B006983A1 /* GetTokenSilently.swift */; };
 		E616F5AC267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
 		E616F5AD267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
-		E616F5AF267A67EC006983A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AE267A67EC006983A1 /* Event.swift */; };
-		E616F5B0267A67EC006983A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AE267A67EC006983A1 /* Event.swift */; };
 		E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
@@ -60,7 +58,6 @@
 		E616F5A5267A64E1006983A1 /* loadCurrentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadCurrentAccount.swift; sourceTree = "<group>"; };
 		E616F5A8267A652B006983A1 /* GetTokenSilently.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenSilently.swift; sourceTree = "<group>"; };
 		E616F5AB267A65F1006983A1 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
-		E616F5AE267A67EC006983A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDataGraph.swift; sourceTree = "<group>"; };
@@ -139,9 +136,18 @@
 				E6AF5F1F266D6761000DC0B0 /* TeamsEvents.swift */,
 				E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */,
 				E616F5AB267A65F1006983A1 /* Me.swift */,
-				E616F5AE267A67EC006983A1 /* Event.swift */,
 			);
 			path = structs;
+			sourceTree = "<group>";
+		};
+		E616F5B1267A7826006983A1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */,
+				E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */,
+				E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		E6172D8125FEA523004ECDF5 /* iOS */ = {
@@ -171,10 +177,8 @@
 			children = (
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
-				E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */,
-				E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */,
-				E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
+				E616F5B1267A7826006983A1 /* Calendar */,
 				E616F59E267A63B8006983A1 /* structs */,
 				E616F59C267A62CA006983A1 /* MsAuthManger */,
 				E6A4F68125FE484F00C1EC9A /* Assets.xcassets */,
@@ -374,7 +378,6 @@
 				E616F5A3267A647F006983A1 /* GetMe.swift in Sources */,
 				E616F5A9267A652B006983A1 /* GetTokenSilently.swift in Sources */,
 				E616F5A6267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
-				E616F5AF267A67EC006983A1 /* Event.swift in Sources */,
 				E616F5AC267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */,
@@ -397,7 +400,6 @@
 				E616F5A4267A647F006983A1 /* GetMe.swift in Sources */,
 				E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */,
 				E616F5A7267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
-				E616F5B0267A67EC006983A1 /* Event.swift in Sources */,
 				E616F5AD267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */,
