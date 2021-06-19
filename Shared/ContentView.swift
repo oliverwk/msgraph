@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var displayName: String = ""
     @State private var isPresentedSignIn: Bool = false
     @StateObject private var authManger = MsAuthManger()
+    @StateObject private var calenderManger = CalenderManger()
     
     var body: some View {
         VStack {
@@ -25,7 +26,13 @@ struct ContentView: View {
             Text(authManger.ErrorMsg)
                 .font(.caption)
                 .multilineTextAlignment(.center)
-            CalendarView(auhtmanger: _authManger)
+                .padding(.bottom, 15)
+            Button("Add to Calendar") {
+                let events = self.authManger.calendarFetcher?.wrappedValue.CalendarEvents
+                print("Calling self.calenderManger.AddEvents(events ?? [])")
+                self.calenderManger.AddEvents(events ?? [])
+            }.disabled(!authManger.logedIn).opacity(authManger.logedIn ? 1 : 0)
+            CalendarView(auhtmanger: _authManger, calenderManger: _calenderManger)
             Button("Microsoft Login Button") {
                 self.$isPresentedSignIn.wrappedValue.toggle()
             }.disabled(authManger.logedIn).opacity(authManger.logedIn ? 0 : 1)

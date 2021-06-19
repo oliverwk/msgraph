@@ -25,6 +25,8 @@
 		E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
+		E6965FC9267DE5F100D5352B /* EventIsAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965FC8267DE5F100D5352B /* EventIsAdded.swift */; };
+		E6965FCA267DE5F100D5352B /* EventIsAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6965FC8267DE5F100D5352B /* EventIsAdded.swift */; };
 		E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
 		E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67E25FE483300C1EC9A /* snapApp.swift */; };
 		E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A4F67F25FE483300C1EC9A /* ContentView.swift */; };
@@ -43,6 +45,12 @@
 		E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BB02172669272C007BA005 /* MsAuthManger.swift */; };
 		E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
 		E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6BB021A2669379D007BA005 /* DebugToggle.bundle */; };
+		E6F42194267D139F0091395B /* CalenderManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F42193267D139F0091395B /* CalenderManger.swift */; };
+		E6F42195267D139F0091395B /* CalenderManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F42193267D139F0091395B /* CalenderManger.swift */; };
+		E6F4219A267D3E140091395B /* GetCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F42199267D3E140091395B /* GetCalendar.swift */; };
+		E6F4219B267D3E140091395B /* GetCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F42199267D3E140091395B /* GetCalendar.swift */; };
+		E6F421A0267DE27F0091395B /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F4219F267DE27F0091395B /* AddEvent.swift */; };
+		E6F421A1267DE27F0091395B /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F4219F267DE27F0091395B /* AddEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +69,7 @@
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDataGraph.swift; sourceTree = "<group>"; };
+		E6965FC8267DE5F100D5352B /* EventIsAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIsAdded.swift; sourceTree = "<group>"; };
 		E6A4F67E25FE483300C1EC9A /* snapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapApp.swift; sourceTree = "<group>"; };
 		E6A4F67F25FE483300C1EC9A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E6A4F68125FE484F00C1EC9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +84,9 @@
 		E6BB021326690FE8007BA005 /* snap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = snap.entitlements; sourceTree = "<group>"; };
 		E6BB02172669272C007BA005 /* MsAuthManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MsAuthManger.swift; sourceTree = "<group>"; };
 		E6BB021A2669379D007BA005 /* DebugToggle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DebugToggle.bundle; sourceTree = "<group>"; };
+		E6F42193267D139F0091395B /* CalenderManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderManger.swift; sourceTree = "<group>"; };
+		E6F42199267D3E140091395B /* GetCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCalendar.swift; sourceTree = "<group>"; };
+		E6F4219F267DE27F0091395B /* AddEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +158,7 @@
 				E6AF5F19266BE5C6000DC0B0 /* CalendarView.swift */,
 				E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */,
 				E6AF5F1C266D3B41000DC0B0 /* CalendarFetcher.swift */,
+				E6F42199267D3E140091395B /* GetCalendar.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 				E6A4F67E25FE483300C1EC9A /* snapApp.swift */,
 				E6A4F67F25FE483300C1EC9A /* ContentView.swift */,
 				E6A4F6B225FE52A000C1EC9A /* LoginModal.swift */,
+				E6F42192267D137E0091395B /* CalendarKit */,
 				E616F5B1267A7826006983A1 /* Calendar */,
 				E616F59E267A63B8006983A1 /* structs */,
 				E616F59C267A62CA006983A1 /* MsAuthManger */,
@@ -202,6 +216,16 @@
 				E6A4F69125FE484F00C1EC9A /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		E6F42192267D137E0091395B /* CalendarKit */ = {
+			isa = PBXGroup;
+			children = (
+				E6F42193267D139F0091395B /* CalenderManger.swift */,
+				E6F4219F267DE27F0091395B /* AddEvent.swift */,
+				E6965FC8267DE5F100D5352B /* EventIsAdded.swift */,
+			);
+			path = CalendarKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,13 +401,17 @@
 				E6AF5F1D266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
 				E616F5A3267A647F006983A1 /* GetMe.swift in Sources */,
 				E616F5A9267A652B006983A1 /* GetTokenSilently.swift in Sources */,
+				E6F42194267D139F0091395B /* CalenderManger.swift in Sources */,
 				E616F5A6267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
 				E616F5AC267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69425FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E6A4F69625FE484F00C1EC9A /* ContentView.swift in Sources */,
+				E6F421A0267DE27F0091395B /* AddEvent.swift in Sources */,
 				E616F59A267A629E006983A1 /* LogOut.swift in Sources */,
 				E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */,
 				E616F5A0267A6423006983A1 /* GetPhoto.swift in Sources */,
+				E6965FC9267DE5F100D5352B /* EventIsAdded.swift in Sources */,
+				E6F4219A267D3E140091395B /* GetCalendar.swift in Sources */,
 				E6BB02182669272C007BA005 /* MsAuthManger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,13 +427,17 @@
 				E6AF5F1E266D3B41000DC0B0 /* CalendarFetcher.swift in Sources */,
 				E616F5A4267A647F006983A1 /* GetMe.swift in Sources */,
 				E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */,
+				E6F42195267D139F0091395B /* CalenderManger.swift in Sources */,
 				E616F5A7267A64E1006983A1 /* loadCurrentAccount.swift in Sources */,
 				E616F5AD267A65F1006983A1 /* Me.swift in Sources */,
 				E6A4F69525FE484F00C1EC9A /* snapApp.swift in Sources */,
 				E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */,
+				E6F421A1267DE27F0091395B /* AddEvent.swift in Sources */,
 				E6A4F69725FE484F00C1EC9A /* ContentView.swift in Sources */,
 				E6BB02192669272C007BA005 /* MsAuthManger.swift in Sources */,
 				E616F5A1267A6423006983A1 /* GetPhoto.swift in Sources */,
+				E6965FCA267DE5F100D5352B /* EventIsAdded.swift in Sources */,
+				E6F4219B267D3E140091395B /* GetCalendar.swift in Sources */,
 				E616F59D267A638B006983A1 /* ErrorDataGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

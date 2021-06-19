@@ -33,7 +33,7 @@ extension MsAuthManger {
                     self.displayName = ""
                     self.ProfilePicture = UIImage()
                     DispatchQueue.main.async {
-                        self.calendarFetcher?.CalendarEvents = []
+                        self.calendarFetcher?.wrappedValue.CalendarEvents = []
                     }
                 }
             })

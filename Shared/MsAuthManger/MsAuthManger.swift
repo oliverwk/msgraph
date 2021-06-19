@@ -7,6 +7,7 @@
 
 import MSAL
 import Combine
+import SwiftUI
 
 class MsAuthManger: ObservableObject {
     
@@ -21,14 +22,12 @@ class MsAuthManger: ObservableObject {
     @Published var CalendarTokenCallback: ((Date) -> Void)?
     @Published var GetTokenWithUICallback: (() -> Void)?
     @Published var webViewParamaters: MSALWebviewParameters?
-    @Published var calendarFetcher: CalendarFetcher?
+    public var calendarFetcher: StateObject<CalendarFetcher>?
     
     let MsScopes: [String] = ["user.read", "calendars.read"]
     
-    
     init() {
         print("Initing MsAuthManger")
-        
         let authorityURL = URL(string: "https://login.microsoftonline.com/common")!
         let ClientID = "9936360b-c0c5-4563-9c76-2ff4a6ed96fc"
         let RedirectUri = "msauth.nl.wittopkoning.authgraph://auth"
@@ -46,5 +45,9 @@ class MsAuthManger: ObservableObject {
     
     func CalendarTokenCallbackPlaceholder(_ datum: Date) { print("hi, from TokenCallback") }
     func GetTokenWithUICallbackPlacerholder() { print("hi, from GetTokenWithUICallback") }
+    
+    func AddCalendarFetcher(fetcher: StateObject<CalendarFetcher>) {
+        self.calendarFetcher = fetcher
+    }
     
 }

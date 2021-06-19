@@ -41,7 +41,7 @@ struct TeamsEvent: Codable, Identifiable {
     let onlineMeeting: onlineMeetingStruct?
     let responseStatus: ResponseStatus
     let body: Body
-    let start, end: EndOrStart
+    var start, end: EndOrStart
     let location: Location
     let locations, attendees: [Location?]
     let organizer: Organizer
@@ -67,7 +67,20 @@ struct Body: Codable {
 
 // MARK: - EndOrStart
 struct EndOrStart: Codable {
+    static var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.sssssss"
+        return dateFormatter
+    }
+    var date: Date {
+        EndOrStart.dateFormatter.date(from: dateTime)!
+    }
     let dateTime, timeZone: String
+    var NativeTimeZone: TimeZone? {
+       return TimeZone(identifier: timeZone)
+    }
 }
 struct onlineMeetingStruct: Codable {
     let joinUrl: String?

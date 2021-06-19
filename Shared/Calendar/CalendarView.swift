@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct CalendarView: View {
-    @StateObject private var calendarFetcher: CalendarFetcher
+    @StateObject internal var calendarFetcher: CalendarFetcher
+    @StateObject internal var calenderManger: CalenderManger
+    @StateObject internal var auhtmanger: MsAuthManger
     let formatter = DateFormatter()
     let dateFormatter = DateFormatter()
     
-    init(auhtmanger: StateObject<MsAuthManger>) {
-        _calendarFetcher = StateObject(wrappedValue: CalendarFetcher(authManger: auhtmanger))
+    init(auhtmanger: StateObject<MsAuthManger>, calenderManger: StateObject<CalenderManger>) {
+        _calendarFetcher = StateObject(wrappedValue: CalendarFetcher(authManger: auhtmanger, calenderManger: calenderManger))
+        _calenderManger = calenderManger
+        _auhtmanger = auhtmanger
+//        auhtmanger.wrappedValue.AddCalendarFetcher(fetcher: _calendarFetcher)
         formatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -34,6 +39,8 @@ struct CalendarView: View {
                     }
                 }
             }
+        }.onAppear {
+            self.auhtmanger.calendarFetcher = _calendarFetcher
         }
     }
 }
