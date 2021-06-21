@@ -22,6 +22,8 @@
 		E616F5AA267A652B006983A1 /* GetTokenSilently.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5A8267A652B006983A1 /* GetTokenSilently.swift */; };
 		E616F5AC267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
 		E616F5AD267A65F1006983A1 /* Me.swift in Sources */ = {isa = PBXBuildFile; fileRef = E616F5AB267A65F1006983A1 /* Me.swift */; };
+		E61B61042680E318000A2819 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E61B61032680E318000A2819 /* Localizable.strings */; };
+		E61B61052680E318000A2819 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E61B61032680E318000A2819 /* Localizable.strings */; };
 		E64FA1A2266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E64FA1A3266F3E7A003A1A86 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */; };
 		E65A501B266E4FD500E46111 /* ErrorDataGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */; };
@@ -67,6 +69,7 @@
 		E616F5A8267A652B006983A1 /* GetTokenSilently.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTokenSilently.swift; sourceTree = "<group>"; };
 		E616F5AB267A65F1006983A1 /* Me.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Me.swift; sourceTree = "<group>"; };
 		E6172D8225FEA523004ECDF5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E61B61032680E318000A2819 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; lineEnding = 0; path = Localizable.strings; sourceTree = "<group>"; };
 		E64FA1A1266F3E7A003A1A86 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
 		E65A501A266E4FD500E46111 /* ErrorDataGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDataGraph.swift; sourceTree = "<group>"; };
 		E6965FC8267DE5F100D5352B /* EventIsAdded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventIsAdded.swift; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		E6172D8125FEA523004ECDF5 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E61B61032680E318000A2819 /* Localizable.strings */,
 				E6172D8225FEA523004ECDF5 /* Info.plist */,
 			);
 			path = iOS;
@@ -292,6 +296,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = E6A4F67625FE483100C1EC9A;
 			productRefGroup = E6A4F68725FE484F00C1EC9A /* Products */;
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F69A25FE484F00C1EC9A /* Assets.xcassets in Resources */,
+				E61B61042680E318000A2819 /* Localizable.strings in Resources */,
 				E6BB021B2669379D007BA005 /* DebugToggle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A4F69B25FE484F00C1EC9A /* Assets.xcassets in Resources */,
+				E61B61052680E318000A2819 /* Localizable.strings in Resources */,
 				E6BB021C2669379D007BA005 /* DebugToggle.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

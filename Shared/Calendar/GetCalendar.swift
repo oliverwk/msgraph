@@ -48,11 +48,11 @@ extension CalendarFetcher {
                     var output = ""
                     if let httpResponse = response as? HTTPURLResponse {
                         if httpResponse.statusCode == 403 {
-                            output = "Acces token isn't right, please login"
+                            output = NSLocalizedString("Acces token isn't right, please login", comment: "403 satsu code graph")
                             self.authManger.signOut()
                             // Hier Dan get token callen
                         } else {
-                            output = "Couldn't get graph result: \(error)"
+                            output = NSLocalizedString("Couldn't get graph result: \(error)", comment: "geen grapp resault")
                         }
                     }
                     DispatchQueue.main.async {
@@ -77,19 +77,21 @@ extension CalendarFetcher {
                             do {
                                 let GraphError = try JSONDecoder().decode(ErrorDataGraph.self, from: d)
                                 print("Er was een error met de graph: \(GraphError.error.message) met de code: \(GraphError.error.code)")
-                                DispatchQueue.main.async { self.authManger.ErrorMsg = "Er was een error met de graph: \(GraphError.error.message)" }
+                                DispatchQueue.main.async { self.authManger.ErrorMsg = NSLocalizedString("there was an error with the graph: \(GraphError.error.message)", comment: "Er was een error met de graph: \(GraphError.error.message)") }
                             } catch {
                                 print("Response:", response ?? "no response")
                                 print("Couldn't deserialize result JSON with data: \(String(decoding: d, as: UTF8.self))\n\nen error: \(error)")
-                                DispatchQueue.main.async { self.authManger.ErrorMsg = "Couldn't deserialize result JSON" }
+                                DispatchQueue.main.async { self.authManger.ErrorMsg = NSLocalizedString("Couldn't deserialize result JSON", comment: "verkeerde fromat json") }
                             }
                         }
                     } else {
                         print("Er was geen data bij het reqeust naar /calender met error: \(error.debugDescription)")
-                        DispatchQueue.main.async { self.authManger.ErrorMsg = "Er was geen data bij het reqeust naar /calender met error: \(error?.localizedDescription ?? "Er was geen error 🤨")" }
+                        DispatchQueue.main.async {
+                            self.authManger.ErrorMsg = NSLocalizedString("there was no data with reqeust to /calender with error: \(String(describing: error?.localizedDescription))", comment: "Er was geen data bij het reqeust naar /calender met error: \(String(describing: error?.localizedDescription))") }
                     }
                 }
             }.resume()
         }
     }
 }
+

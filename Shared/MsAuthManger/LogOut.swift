@@ -23,10 +23,10 @@ extension MsAuthManger {
                 
                 if let error = error {
                     print("Couldn't sign out account with error: \(error)")
-                    self.ErrorMsg = "Couldn't sign out account: \(error)"
+                    self.ErrorMsg = NSLocalizedString("Couldn't sign out account: \(error)", comment: "modal")
                 } else {
                     print("Sign out completed successfully")
-                    self.ErrorMsg = "Sign out completed successfully"
+                    self.ErrorMsg = NSLocalizedString("Sign out completed successfully", comment: "modal")
                     self.accessToken = ""
                     self.logedIn = false
                     self.currentAccount = nil

@@ -18,7 +18,6 @@ struct CalendarView: View {
         _calendarFetcher = StateObject(wrappedValue: CalendarFetcher(authManger: auhtmanger, calenderManger: calenderManger))
         _calenderManger = calenderManger
         _auhtmanger = auhtmanger
-//        auhtmanger.wrappedValue.AddCalendarFetcher(fetcher: _calendarFetcher)
         formatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
@@ -31,10 +30,10 @@ struct CalendarView: View {
                 NavigationLink(destination: CalendarDetailView(event: event)) {
                     HStack {
                         Text(verbatim: event.subject)
-                        Text(verbatim: event.location.displayName ?? "Geen Location")
+                        Text(event.location.displayName ?? NSLocalizedString("No Location", comment: "Geen location CalendarView"))
                             .font(.footnote)
                         Spacer()
-                        Text("\(self.formatter.string(from: dateFormatter.date(from: event.start.dateTime)!))-\(self.formatter.string(from: dateFormatter.date(from: event.end.dateTime)!))")
+                        Text(verbatim: "\(self.formatter.string(from: dateFormatter.date(from: event.start.dateTime)!))-\(self.formatter.string(from: dateFormatter.date(from: event.end.dateTime)!))")
                             .font(.footnote)
                     }
                 }

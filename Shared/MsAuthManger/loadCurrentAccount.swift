@@ -8,8 +8,9 @@
 import MSAL
 
 extension MsAuthManger {
-    
+
     func loadCurrentAccount(CalledFromLoginModal: Bool? = false) {
+        let geenNaamString = NSLocalizedString("No user name", comment: "in auth MsAuthManger")
         print("CalledFromLoginModal: \(String(describing: CalledFromLoginModal))")
         guard let applicationContext = self.applicationContext else { return }
         
@@ -19,12 +20,12 @@ extension MsAuthManger {
         applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
             
             if let error = error {
-                self.ErrorMsg = "Couldn't query current account with error: \(error)"
+                self.ErrorMsg = NSLocalizedString("Couldn't query current account with error: \(error)", comment: "kon geen accoutn vinden")
                 return
             }
             
             if let currentAccount = currentAccount {
-                self.ErrorMsg = "Found a signed in account \(currentAccount.username ?? "No user name")."
+                self.ErrorMsg = NSLocalizedString("Found a signed in account \(currentAccount.username ?? geenNaamString)", comment: "auccount gevond met user name")
                 print("currentAccount", currentAccount.accountClaims?["name"] ?? "user name")
                 self.currentAccount = currentAccount
                 self.logedIn = true
@@ -42,7 +43,7 @@ extension MsAuthManger {
                 self.accessToken = ""
                 self.currentAccount = nil
                 self.logedIn = false
-                self.ErrorMsg = "Account is signed out"
+                self.ErrorMsg = NSLocalizedString("Account is signed out", comment: "geeen comment")
                 if let calledFromLoginModal = CalledFromLoginModal {
                     if calledFromLoginModal {
                         if let getTokenWithUICallback = self.GetTokenWithUICallback {

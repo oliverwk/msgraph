@@ -21,11 +21,11 @@ extension MsAuthManger {
                 var output = ""
                 if let httpResponse = response as? HTTPURLResponse {
                     if httpResponse.statusCode == 403 {
-                        output =  "Acces token isn't right, please login"
+                        output =  NSLocalizedString("Acces token isn't right, please login", comment: "...")
                         self.signOut()
                         // Hier Dan get token callen
                     } else {
-                        output = "Couldn't get graph result: \(error)"
+                        output = NSLocalizedString("Couldn't get graph result: \(error)", comment: "graph error bij /me")
                     }
                 }
                 DispatchQueue.main.async {
@@ -55,11 +55,11 @@ extension MsAuthManger {
                     } catch {
                         print("Response:", response ?? "no response")
                         print("Couldn't deserialize result JSON with data \(String(decoding: data!, as: UTF8.self)):", error)
-                        self.ErrorMsg = "Couldn't deserialize result JSON"
+                        self.ErrorMsg = NSLocalizedString("Couldn't deserialize result JSON", comment: "bij /me")
                     }
                 } else {
                     print("Er was geen data bij het reqeust naar de graph")
-                    self.ErrorMsg = "Er was geen data bij het reqeust naar de graph"
+                    self.ErrorMsg = NSLocalizedString("Er was geen data bij het reqeust naar de graph", comment: "bij /me")
                 }
             }
         }.resume()

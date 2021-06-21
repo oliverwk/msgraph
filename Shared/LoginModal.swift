@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate?.authManger.webViewParamaters = MSALWebviewParameters(authPresentationViewController: self)
-        self.delegate?.authManger.GetTokenWithUICallback = acquireTokenInteractively
+        self.delegate?.authManger.GetTokenWithUICallback = GetTokenInteractively
         self.delegate?.authManger.loadCurrentAccount(CalledFromLoginModal: true)
     }
     
@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    func acquireTokenInteractively() {
+    func GetTokenInteractively() {
         print("acquiring Token Interactively")
         if let del = self.delegate {
             if !del.isPresented {
@@ -92,12 +92,12 @@ class LoginViewController: UIViewController {
         applicationContext.acquireToken(with: parameters) { (result, error) in
             
             if let error = error {
-                self.delegate?.authManger.ErrorMsg =  "Could not acquire token: \(error)"
+                self.delegate?.authManger.ErrorMsg =  NSLocalizedString("Could not acquire token: \(error)", comment: "geen token error loginmodal")
                 return
             }
             
             guard let result = result else {
-                self.delegate?.authManger.ErrorMsg =  "Could not acquire token: No result returned"
+                self.delegate?.authManger.ErrorMsg =  NSLocalizedString( "Could not acquire token: No result returned", comment: "geen token error loginmodal")
                 return
             }
             
@@ -106,7 +106,8 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 self.delegate?.authManger.accessToken = result.accessToken
                 self.delegate?.authManger.currentAccount = result.account
-                self.delegate?.authManger.ErrorMsg = "Signed in an account \(result.account.username ?? "No username")."
+                let NoUserName = NSLocalizedString("No username", comment: "LoginViewController get token")
+                self.delegate?.authManger.ErrorMsg = NSLocalizedString("Signed in an account \(result.account.username ?? NoUserName).", comment: "signed in user loginmodal")
                 self.delegate?.authManger.GetMe()
                 if let calendarTokenCallback = self.delegate?.authManger.CalendarTokenCallback {
                     print("calling CalendarTokenCallback")

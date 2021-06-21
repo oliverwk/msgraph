@@ -36,13 +36,13 @@ extension MsAuthManger {
                                 print("Calling GetTokenWithUICallback()")
                                 getTokenWithUICallback()
                             }
-                            //self.acquireTokenInteractively()
+                            //self.GetTokenInteractively()
                         }
                         return
                     }
                 }
                 
-                self.ErrorMsg = "Could not acquire token silently: \(error)"
+                self.ErrorMsg = NSLocalizedString("Could not acquire token silently: \(error)", comment: "kon niet stil een token halen")
                 DispatchQueue.main.async {
                     self.logedIn = false
                 }
@@ -51,7 +51,7 @@ extension MsAuthManger {
             
             guard let result = result else {
                 DispatchQueue.main.async {
-                    self.ErrorMsg = "Could not acquire token: No result returned"
+                    self.ErrorMsg = NSLocalizedString("Could not acquire token: No result returned", comment: "geen result bij getToken")
                     self.logedIn = false
                 }
                 return

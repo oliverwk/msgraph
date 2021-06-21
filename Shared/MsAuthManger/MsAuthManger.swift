@@ -36,7 +36,7 @@ class MsAuthManger: ObservableObject {
             let msalConfiguration = MSALPublicClientApplicationConfig(clientId: ClientID, redirectUri: RedirectUri, authority: authority)
             self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         } catch {
-            self.ErrorMsg = "Error At init \(error)"
+            self.ErrorMsg = NSLocalizedString("Error At init \(error)", comment: "er was een fout bij init MsAuthManger")
         }
         self.CalendarTokenCallback = CalendarTokenCallbackPlaceholder
         self.GetTokenWithUICallback = GetTokenWithUICallbackPlacerholder

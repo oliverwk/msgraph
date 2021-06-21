@@ -18,7 +18,7 @@ extension MsAuthManger {
         URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {
-                self.ErrorMsg = "Couldn't get graph result: \(error)"
+                self.ErrorMsg = NSLocalizedString("Couldn't get graph photo: \(error)", comment: "bij /photo")
                 return
             }
             
