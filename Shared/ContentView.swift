@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     @State private var displayName: String = ""
+    @State private var CalendarText: String = "Add to Calendar"
     @State private var isPresentedSignIn: Bool = false
     @StateObject private var authManger = MsAuthManger()
     @StateObject private var calenderManger = CalenderManger()
@@ -27,11 +27,16 @@ struct ContentView: View {
                 .font(.caption)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 15)
-            Button("Add to Calendar") {
+            Button(CalendarText) {
                 let events = self.authManger.calendarFetcher?.wrappedValue.CalendarEvents
                 print("Calling self.calenderManger.AddEvents(events ?? [])")
-                self.calenderManger.AddEvents(events ?? [])
-            }.disabled(!authManger.logedIn).opacity(authManger.logedIn ? 1 : 0)
+                let addedToCalender = self.calenderManger.AddEvents(events ?? [])
+                if addedToCalender {
+                    self.CalendarText = "Added to Calendar"
+                } else {
+                    self.CalendarText = "Failed to add to Calendar"
+                }
+            }.disabled(!authManger.logedIn).padding(.horizontal, 5).padding().foregroundColor(Color.white).background(Color.blue).cornerRadius(8).opacity(authManger.logedIn ? 1 : 0)
             CalendarView(auhtmanger: _authManger, calenderManger: _calenderManger)
             Button("Microsoft Login Button") {
                 self.$isPresentedSignIn.wrappedValue.toggle()

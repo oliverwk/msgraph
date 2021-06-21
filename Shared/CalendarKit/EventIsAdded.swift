@@ -9,7 +9,7 @@ import EventKit
 
 extension CalenderManger {
     
-     func EventIsAdded(_ eventToAdd: EKEvent) -> Bool {
+    func EventIsAdded(_ eventToAdd: EKEvent) -> Bool {
         let predicate = store.predicateForEvents(withStart: eventToAdd.startDate, end: eventToAdd.endDate, calendars: nil)
         let existingEvents = store.events(matching: predicate)
         
