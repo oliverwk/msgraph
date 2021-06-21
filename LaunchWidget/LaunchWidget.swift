@@ -76,7 +76,8 @@ struct LaunchEntry: TimelineEntry {
 struct LaunchWidgetEntryView : View {
     var entry: Provider.Entry
     let mNaam = NSLocalizedString("No mission name", comment: "Geen missie naam")
-        
+    let lDate = Date().toString()
+
     var body: some View {
         VStack(alignment: .center) {
             Text(entry.Launch.missionName ?? mNaam)
@@ -86,7 +87,7 @@ struct LaunchWidgetEntryView : View {
                 .shadow(radius: 5)
                 .padding(.vertical, 2.0)
                 .multilineTextAlignment(.center)
-            Text(Date(string: entry.Launch.launchDateLocal ?? ""), style: .date)
+            Text(Date(string: entry.Launch.launchDateLocal ?? lDate), style: .date)
                 .font(.footnote)
                 .fontWeight(.bold)
                 .foregroundColor(Color.secondary)
