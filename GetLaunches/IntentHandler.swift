@@ -31,11 +31,15 @@ public class ViewLaunchesIntentHandler: NSObject, ViewLaunchesIntentHandling {
             switch result {
             case .success(let graphQLResult):
                 let launch = graphQLResult.data?.launchesPast?[0]
-                let launchDate = self.StringToDate(launch?.launchDateLocal ?? "")
-                let theLaunch = Launch(identifier: launch?.id, display: "De \(launch?.missionName ?? "missie naam") was gelanceerd met de raket \(launch?.rocket?.rocketName ?? "raket naam") op \(self.DateToLocalString(launchDate)) vanaf \(launch?.launchSite?.siteNameLong ?? "Lanceer platform"))")
+                let launchDate = Date(string: launch?.launchDateLocal ?? NSLocalizedString("no date", comment: "geen datum"))
+                let mNaam = NSLocalizedString("No mission", comment: "Geen missie naam")
+                let rNaam = NSLocalizedString("No rocket name", comment: "Geen raket naam")
+                let pNaam = NSLocalizedString("No launch platform", comment: "Geen launch")
+                let displayName = NSLocalizedString("The \(launch?.missionName ?? mNaam) was launched with the rocket \(launch?.rocket?.rocketName ?? rNaam) at \(launchDate.toString()) from \(launch?.launchSite?.siteNameLong ?? pNaam)", comment: "ViewLaunchesIntentHandler Display Name")
+                let theLaunch = Launch(identifier: launch?.id, display: displayName)
                 theLaunch.launchSite = launch?.launchSite?.siteNameLong
                 theLaunch.missionName = launch?.missionName
-                theLaunch.launched = launchDate
+                theLaunch.launched = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: launchDate)
                 theLaunch.rocketName = launch?.rocket?.rocketName
                 
                 completion(.success(launch: theLaunch))
@@ -46,37 +50,4 @@ public class ViewLaunchesIntentHandler: NSObject, ViewLaunchesIntentHandling {
             }
         }
     }
-    
-    func DateToLocalString(_ launchDate: DateComponents) -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        formatter.timeStyle = .none
-        //formatter.locale = Locale.current
-        formatter.locale = Locale(identifier: "nl_NL")
-
-        let dateTimeString = formatter.string(from: Calendar.current.date(from: launchDate)!)
-        return dateTimeString
-    }
-    
-    func StringToDate(_ date: String) -> DateComponents {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        //   From Spacex API    2020-10-24T11:31:00-04:00
-        //   From Example       13-03-2020 13:37:00 +0100
-        let TheDate = date.split(usingRegex: "-\\d\\d:\\d\\d")[0]
-        print("current date: \(date) current dateComponetns: \(String(describing: formatter.date(from: TheDate)))")
-        print("TheDate:", date.split(usingRegex: "-\\d\\d:\\d\\d")[0])
-        let datetime = formatter.date(from: TheDate)
-        return Calendar.current.dateComponents([.year, .month, .day], from: datetime ?? Date())
-    }
 }
-
-/*
-extension String {
-    func split(usingRegex pattern: String) -> [String] {
-        let regex = try! NSRegularExpression(pattern: pattern)
-        let matches = regex.matches(in: self, range: NSRange(0..<utf16.count))
-        let ranges = [startIndex..<startIndex] + matches.map{Range($0.range, in: self)!} + [endIndex..<endIndex]
-        return (0...matches.count).map {String(self[ranges[$0].upperBound..<ranges[$0+1].lowerBound])}
-    }
-}*/

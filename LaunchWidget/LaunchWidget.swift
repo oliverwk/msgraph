@@ -35,7 +35,7 @@ struct Provider: TimelineProvider {
             case .failure(let error):
                 print("Failure! Error: \(error)")
                 var errorLaunch = placeHolderLaunch
-                errorLaunch.missionName = "Er was met GraphQL: \(error.localizedDescription)"
+                errorLaunch.missionName = NSLocalizedString("There was an error with GraphQL: \(error.localizedDescription)", comment: "Er was met GraphQL: \(error.localizedDescription)")
                 completion?(errorLaunch)
             }
         }
@@ -75,10 +75,11 @@ struct LaunchEntry: TimelineEntry {
 
 struct LaunchWidgetEntryView : View {
     var entry: Provider.Entry
-    
+    let mNaam = NSLocalizedString("No mission name", comment: "Geen missie naam")
+        
     var body: some View {
         VStack(alignment: .center) {
-            Text(entry.Launch.missionName ?? "Geen missie naam")
+            Text(entry.Launch.missionName ?? mNaam)
                 .font(.headline)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
@@ -110,7 +111,7 @@ struct LaunchWidget: Widget {
         }
         .supportedFamilies([.systemSmall, .systemMedium])
         .configurationDisplayName("SpaceX Launch Widget")
-        .description("Met deze widget kan je de recent spaceX launches zien.")
+        .description(NSLocalizedString("With this widget you can see the recent spaceX launches.", comment: "Met deze widget kan je de recent spaceX launches zien."))
     }
 }
 

@@ -19,6 +19,12 @@
 		E6145F30265FF67C009296EE /* LaunchList.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E6145F2E265FF67C009296EE /* LaunchList.graphql */; };
 		E6145F32265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
 		E6145F33265FF7E0009296EE /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
+		E61B610F2680EF11000A2819 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E61B610E2680EF11000A2819 /* Localizable.strings */; };
+		E61B61132680F934000A2819 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E61B61152680F934000A2819 /* Localizable.strings */; };
+		E65EA68226811E2E00326849 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E65EA68626811E2E00326849 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		E65EA68326811E2E00326849 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E65EA68626811E2E00326849 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
+		E65EA68426811E2E00326849 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E65EA68626811E2E00326849 /* Intents.intentdefinition */; };
+		E65EA68D268121F700326849 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E65EA68B268121F700326849 /* Localizable.strings */; };
 		E69A49D6267A2CDA002BC29D /* LaunchNext.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E69A49D5267A2CDA002BC29D /* LaunchNext.graphql */; };
 		E69A49D7267A2CDA002BC29D /* LaunchNext.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E69A49D5267A2CDA002BC29D /* LaunchNext.graphql */; };
 		E69A49D8267A2CDA002BC29D /* LaunchNext.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E69A49D5267A2CDA002BC29D /* LaunchNext.graphql */; };
@@ -54,9 +60,6 @@
 		E6D7513B26764F4000D09EF5 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6D7513A26764F4000D09EF5 /* Intents.framework */; };
 		E6D7513E26764F4000D09EF5 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7513D26764F4000D09EF5 /* IntentHandler.swift */; };
 		E6D7514226764F4000D09EF5 /* GetLaunches.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E6D7513926764F4000D09EF5 /* GetLaunches.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		E6D7514826764F5500D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; };
-		E6D7514B267653E200D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
-		E6D7514C267653E200D09EF5 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E6D7514726764F5500D09EF5 /* Intents.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		E6D7514E2676551000D09EF5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6145F31265FF7E0009296EE /* Network.swift */; };
 		E6E489032678F74200D619A5 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E489022678F74200D619A5 /* LaunchImage.swift */; };
 		E6E489042678F74200D619A5 /* LaunchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E489022678F74200D619A5 /* LaunchImage.swift */; };
@@ -116,6 +119,13 @@
 		E6145F2B265FF5A7009296EE /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		E6145F2E265FF67C009296EE /* LaunchList.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchList.graphql; sourceTree = "<group>"; };
 		E6145F31265FF7E0009296EE /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		E61B610E2680EF11000A2819 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		E61B61142680F934000A2819 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E65EA68526811E2E00326849 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; name = Base; path = Base.lproj/Intents.intentdefinition; sourceTree = "<group>"; };
+		E65EA68826811E4A00326849 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Intents.strings; sourceTree = "<group>"; };
+		E65EA68A26811E5B00326849 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Intents.strings; sourceTree = "<group>"; };
+		E65EA68C268121F700326849 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E65EA68E2681243F00326849 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E69A49D5267A2CDA002BC29D /* LaunchNext.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LaunchNext.graphql; sourceTree = "<group>"; };
 		E69A49D9267A2EAF002BC29D /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E69A63D026753EB9002C869B /* LaunchListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListData.swift; sourceTree = "<group>"; };
@@ -142,7 +152,6 @@
 		E6D7513A26764F4000D09EF5 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		E6D7513D26764F4000D09EF5 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		E6D7513F26764F4000D09EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6D7514726764F5500D09EF5 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		E6E489022678F74200D619A5 /* LaunchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchImage.swift; sourceTree = "<group>"; };
 		E6E489082678FB3500D619A5 /* LaunchRowText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchRowText.swift; path = Shared/ImageRowViews/LaunchRowText.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -230,6 +239,7 @@
 		E6A9F7A1267896430014B795 /* LaunchWidget */ = {
 			isa = PBXGroup;
 			children = (
+				E61B610E2680EF11000A2819 /* Localizable.strings */,
 				E6A9F7A2267896430014B795 /* LaunchWidget.swift */,
 				E6A9F7A4267896440014B795 /* Assets.xcassets */,
 				E6A9F7A6267896440014B795 /* Info.plist */,
@@ -287,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				E6CECDD6265D210D00CA87F8 /* Info.plist */,
+				E61B61152680F934000A2819 /* Localizable.strings */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -304,7 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				E6D7513D26764F4000D09EF5 /* IntentHandler.swift */,
-				E6D7514726764F5500D09EF5 /* Intents.intentdefinition */,
+				E65EA68B268121F700326849 /* Localizable.strings */,
+				E65EA68626811E2E00326849 /* Intents.intentdefinition */,
 				E6D7513F26764F4000D09EF5 /* Info.plist */,
 			);
 			path = GetLaunches;
@@ -421,6 +433,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = E6CECDC6265D20F400CA87F8;
 			productRefGroup = E6CECDD4265D210D00CA87F8 /* Products */;
@@ -441,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6A9F7A5267896440014B795 /* Assets.xcassets in Resources */,
+				E61B610F2680EF11000A2819 /* Localizable.strings in Resources */,
 				E69A49D8267A2CDA002BC29D /* LaunchNext.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +466,7 @@
 				E6145F2F265FF67C009296EE /* LaunchList.graphql in Resources */,
 				E6CD42922666C98E002CB0F1 /* VersionSettingBundle.bundle in Resources */,
 				E6145F2C265FF5A8009296EE /* schema.json in Resources */,
+				E61B61132680F934000A2819 /* Localizable.strings in Resources */,
 				E6CECDE3265D210D00CA87F8 /* Assets.xcassets in Resources */,
 				E69A49D6267A2CDA002BC29D /* LaunchNext.graphql in Resources */,
 			);
@@ -473,6 +488,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E65EA68D268121F700326849 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,10 +662,10 @@
 				E6145F28265FF258009296EE /* LaunchRowView.swift in Sources */,
 				E69A49DA267A2EAF002BC29D /* API.swift in Sources */,
 				E69CCD3726790A3E005F14C0 /* LaunchImages.swift in Sources */,
-				E6D7514B267653E200D09EF5 /* Intents.intentdefinition in Sources */,
 				E6A9F7AE26789A0B0014B795 /* Helpers.swift in Sources */,
 				E69CCD3326790453005F14C0 /* ImageViewer.swift in Sources */,
 				E6E489032678F74200D619A5 /* LaunchImage.swift in Sources */,
+				E65EA68226811E2E00326849 /* Intents.intentdefinition in Sources */,
 				E69A63D126753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,10 +682,10 @@
 				E6145F29265FF258009296EE /* LaunchRowView.swift in Sources */,
 				E69A49DB267A2EAF002BC29D /* API.swift in Sources */,
 				E69CCD3826790A3E005F14C0 /* LaunchImages.swift in Sources */,
-				E6D7514C267653E200D09EF5 /* Intents.intentdefinition in Sources */,
 				E6A9F7AF26789A0B0014B795 /* Helpers.swift in Sources */,
 				E69CCD3426790453005F14C0 /* ImageViewer.swift in Sources */,
 				E6E489042678F74200D619A5 /* LaunchImage.swift in Sources */,
+				E65EA68326811E2E00326849 /* Intents.intentdefinition in Sources */,
 				E69A63D226753EB9002C869B /* LaunchListData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,10 +694,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6D7514826764F5500D09EF5 /* Intents.intentdefinition in Sources */,
 				E6D7514E2676551000D09EF5 /* Network.swift in Sources */,
 				E6A9F7B026789A0B0014B795 /* Helpers.swift in Sources */,
 				E6D7513E26764F4000D09EF5 /* IntentHandler.swift in Sources */,
+				E65EA68426811E2E00326849 /* Intents.intentdefinition in Sources */,
 				E69A49DD267A2EC8002BC29D /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +716,36 @@
 			targetProxy = E6D7514F2676583200D09EF5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E61B61152680F934000A2819 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E61B61142680F934000A2819 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E65EA68626811E2E00326849 /* Intents.intentdefinition */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E65EA68526811E2E00326849 /* Base */,
+				E65EA68826811E4A00326849 /* en */,
+				E65EA68A26811E5B00326849 /* nl */,
+			);
+			name = Intents.intentdefinition;
+			sourceTree = "<group>";
+		};
+		E65EA68B268121F700326849 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E65EA68C268121F700326849 /* nl */,
+				E65EA68E2681243F00326849 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E6A9F7AB267896440014B795 /* Debug */ = {
@@ -755,6 +801,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -814,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

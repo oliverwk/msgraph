@@ -13,14 +13,14 @@ struct LaunchRowText: View {
     
     var body: some View {
         HStack {
-            Text(Launch?.missionName ?? "Geen missionName")
+            Text(Launch?.missionName ?? "No missionName")
                 .padding()
-            Text(Launch?.launchSite?.siteNameLong ?? "Geen launchSite")
+            Text(Launch?.launchSite?.siteNameLong ?? "No launchSite")
                 .padding()
         }
-        Text(Launch?.rocket?.rocketName ?? "Geen rocketName")
+        Text(Launch?.rocket?.rocketName ?? "No rocketName")
             .padding()
-        Text(Launch?.launchDateLocal ?? "Geen launchDate")
+        Text(Launch?.launchDateLocal ?? "No launchDate")
             .padding()
     }
 }

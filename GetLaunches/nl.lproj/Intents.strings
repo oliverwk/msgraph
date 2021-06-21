@@ -1,0 +1,34 @@
+"48BUhe" = "Sorry we konde de lancering";
+
+"82Eg17" = "gelnaceerd";
+
+"AeNW7l" = "lanceer platform";
+
+"Albn68" = "Sorry er was een error";
+
+"DaUPFl" = "Laat de recenten SpaceX lanceringen zien";
+
+"JrbVtb" = "Laat de SpaceX lanceringen zien";
+
+"Jv9mcs" = "Laat de recenten SpaceX lanceringen zien";
+
+"PVg9c6" = "Missie naam";
+
+"RUdztt" = "Lancering";
+
+"SBETIl" = "Lancering";
+
+"TnXhvG" = "Sorry er was een error";
+
+"dYBSQS" = "Laat de recenten SpaceX lanceringen zien met de GraphQL api";
+
+"fEShrL" = "Laat de SpaceX lanceringen zien";
+
+"jRiZMF" = "Sorry we konden de Lancering niet zien";
+
+"uYpqRB" = "De ${launch.missionName} lanceerde met de raket ${launch.rocketName} om ${launch.launched} vanaf ${launch.launchSite}";
+
+"v4QT6S" = "raket";
+
+"xuoHUO" = "De ${launch.missionName} lanceerde met de raket ${launch.rocketName} om ${launch.launched} vanaf ${launch.launchSite}";
+

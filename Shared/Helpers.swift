@@ -20,16 +20,15 @@ extension Date {
         self.init(timeIntervalSince1970: UnixEpoch)
     }
     
-    public func StringToDate(_ string: String) -> DateComponents {
+    public func toString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        //   From Spacex API    2020-10-24T11:31:00-04:00
-        //   From Example       13-03-2020 13:37:00 +0100
-        let TheDate = string.split(usingRegex: "-\\d\\d:\\d\\d")[0]
-        print("current date: \(string) current dateComponetns: \(String(describing: formatter.date(from: TheDate)))")
-        print("TheDate:", string.split(usingRegex: "-\\d\\d:\\d\\d")[0])
-        let datetime = formatter.date(from: TheDate)
-        return Calendar.current.dateComponents([.year, .month, .day], from: datetime ?? Date())
+        formatter.dateStyle = .full
+        formatter.timeStyle = .medium
+        formatter.locale = Locale.current
+//        formatter.locale = Locale(identifier: "nl_NL")
+
+        let dateTimeString = formatter.string(from: self)
+        return dateTimeString
     }
 }
 

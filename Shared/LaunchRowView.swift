@@ -36,6 +36,7 @@ struct LaunchRowView: View {
 //                }.navigationViewStyle(StackNavigationViewStyle())
             }
         }.userActivity(useractivity) { activity in
+            let gLuanch = NSLocalizedString("no launch", comment: "geen lancering")
             let theId = ((self.Launch?.id ?? "0") as String)
             activity.isEligibleForHandoff = true
             activity.isEligibleForSearch = false
@@ -45,7 +46,7 @@ struct LaunchRowView: View {
             activity.keywords = [theId, self.Launch?.missionName ?? "spacex"]
             activity.setValue(theId, forKey: "persistentIdentifier")
             activity.targetContentIdentifier = theId
-            activity.title = NSLocalizedString("View launch \(self.Launch?.missionName ?? "")", comment: "View Launch activity")
+            activity.title = NSLocalizedString("View launch \(self.Launch?.missionName ?? gLuanch)", comment: "View Launch activity")
             logger.notice("Adding useractivity with id: \(theId, privacy: .public) on launch \(self.Launch?.missionName ?? "Geen mission Naam", privacy: .public)")
             activity.needsSave = true
             activity.becomeCurrent()
