@@ -35,7 +35,7 @@ struct ContentView: View {
                     logger.log("Received a payload via spotlight with id: \(id, privacy: .public)")
                     DispatchQueue.main.async {
                         self.selectedLaunch = id
-                        // Dit is zodat de view moet reloaden en dan dus de nieuwe data binnen krijgt
+                        // Iets doen zodat de view moet reloaden en dan dus de nieuwe data binnen krijgt
                     }
                 }
             }
