@@ -71,7 +71,7 @@ extension CalendarFetcher {
                             }
                             print("Calling Add2Calender()")
                             if self.calenderManger.authStatus == .authorized {
-                                self.calenderManger.AddEvents(teamsEvents)
+                                let _ = self.calenderManger.AddEvents(teamsEvents)
                             }
                         } catch {
                             do {
