@@ -1,8 +1,6 @@
 import Foundation
-#if COCOAPODS
-//import Apollo
-#else
-import ApolloCore
+#if !COCOAPODS
+import ApolloUtils
 #endif
 
 public struct GraphQLGETTransformer {

@@ -15,9 +15,7 @@ public enum CachePolicy {
   case returnCacheDataAndFetch
   
   /// The current default cache policy.
-  public static var `default`: CachePolicy {
-    .returnCacheDataElseFetch
-  }
+  public static var `default`: CachePolicy = .returnCacheDataElseFetch
 }
 
 /// A handler for operation results.
@@ -59,7 +57,7 @@ public class ApolloClient {
   /// - Parameter url: The URL of a GraphQL server to connect to.
   public convenience init(url: URL) {
     let store = ApolloStore(cache: InMemoryNormalizedCache())
-    let provider = LegacyInterceptorProvider(store: store)
+    let provider = DefaultInterceptorProvider(store: store)
     let transport = RequestChainNetworkTransport(interceptorProvider: provider,
                                                  endpointURL: url)
     
@@ -82,7 +80,7 @@ extension ApolloClient: ApolloClientProtocol {
 
   public func clearCache(callbackQueue: DispatchQueue = .main,
                          completion: ((Result<Void, Error>) -> Void)? = nil) {
-    self.store.clearCache(completion: completion)
+    self.store.clearCache(callbackQueue: callbackQueue, completion: completion)
   }
   
   @discardableResult public func fetch<Query: GraphQLQuery>(query: Query,
